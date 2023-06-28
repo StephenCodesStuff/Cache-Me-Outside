@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS cacheme_db;
+CREATE DATABASE cacheme_db;
