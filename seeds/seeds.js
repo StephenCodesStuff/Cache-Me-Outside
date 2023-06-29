@@ -17,11 +17,19 @@ const seedDatabase = async () => {
     for (const cache of cacheData) {
         await Caches.create({
             ...cache,
-            user_id: users[Math.floor(Math.random() * users.length)].id
+            hider_id: users[Math.floor(Math.random() * users.length)].id
         });
     };
 
     //foundcaches here
+    for (const foundCache of foundCacheData) {
+        await FoundCaches.create({
+            ...foundCache,
+            cache_id: caches[Math.floor(Math.random() * caches.length)].id,
+            finder_id: users[Math.floor(Math.random() * users.length)].id,
+            times_found: Math.floor(Math.random(), 10)
+        });
+    };
     process.exit(0);
 };
 
