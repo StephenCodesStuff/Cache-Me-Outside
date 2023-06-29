@@ -24,13 +24,15 @@ FoundCaches.init(
                 model: 'user',
                 key: 'id'
             },
+            defaultValue: null
         },
-        // isFound:{
-        //     type: DataTypes.BOOLEAN,
-        //     defaultValue: false
-        // },
+        isFound:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
         times_found:{
             type: DataTypes.INTEGER,
+            defaultValue: 0
         }
     },
     {
