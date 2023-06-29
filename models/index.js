@@ -4,21 +4,23 @@ const FoundCaches = require('./foundcaches');
 
 //User can create/hide many caches
 User.hasMany(Caches, {
-    //foreignKey: 'user_id',
+    foreignKey: 'hider_id',
     });
 
-//a cache can only have one hider (user)
+//a cache can only belong to one hider (user)
 Caches.belongsTo(User, {
-    //foreignKey: 'user_id',
-    });
+    foreignKey: 'hider_id',
+    // onDelete: 'CASCADE' if cache deleted, delete associated child rows
+});
 
-//one cache can many FINDERS> update item
+//user can find many caches (Finder:many caches)
 User.hasMany(FoundCaches, {
     foreignKey: 'finder_id'
-})
+});
 
+//one cache can be found many times (cache:many finders)
 Caches.hasMany(FoundCaches, {
     foreignKey: 'cache_id'
-})
+});
 
-module.exports = { User };
+module.exports = { User, Caches, FoundCaches };
