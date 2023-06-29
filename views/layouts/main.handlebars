@@ -52,7 +52,7 @@
             </div>
         </div>
     </section> --}}
-    
+
     <!-- End Top Bar -->
 
     <header id="header" class="header d-flex align-items-center">
@@ -71,9 +71,9 @@
                     <li><a href="/#portfolio">Caches</a></li>
                     {{#if logged_in}}
                     <li><a href="/profile">Profile</a></li>
-                    <li><a id="logout">Logout</a></li>
+                    <li><a id="logoutButton">Logout</a></li>
                     {{else}}
-                    <li><a id="login" href="/login">Login</a></li>
+                    <li><a id="loginButton" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
                     {{/if}}
                     {{!-- <li><a href="blog.html">Blog</a></li> --}}
                     {{!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i
@@ -107,7 +107,7 @@
     <!-- End Header -->
 
 
-{{{body}}}
+    {{{body}}}
 
 
     <!-- ======= Footer ======= -->
@@ -179,6 +179,26 @@
             </div>
         </div>
 
+{{!-- login/signup modal --}}
+        <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </footer><!-- End Footer -->
     <!-- End Footer -->
 
@@ -195,6 +215,9 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    {{!-- Custom JS files --}}
+    <script src="assets/js/loginModal.js"></script>
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
