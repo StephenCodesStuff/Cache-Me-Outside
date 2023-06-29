@@ -36,11 +36,6 @@ User.init(
         len: [8],
       },
     },
-    userSince: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-    }
   },
   {
     hooks: {
@@ -54,7 +49,7 @@ User.init(
       },
     },
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'user',

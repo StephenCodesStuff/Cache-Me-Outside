@@ -1,37 +1,33 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Caches extends Model {}
+class FoundCaches extends Model {}
 
-Cache.init(
+FoundCaches.init(
     {
-        id: {
+        id:{
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        lat: {
-            type: DataTypes.FLOAT,
-            allowNull: false
-        },
-        lon: {
-            type: DataTypes.FLOAT,
-            allowNull: false
-        },
-        hints: {
-            type: DataTypes.STRING
-        },
-        hider_id:{
+        cache_id:{
             type: DataTypes.INTEGER,
             references: {
+                model: 'caches',
+                key: 'id'
+            },
+        },
+        finder_id:{
+            type: DataTypes.INTEGER,
+            references:{
                 model: 'user',
                 key: 'id'
             },
+        },
+        isFound:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         },
     },
     {
@@ -39,8 +35,8 @@ Cache.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'caches'
-    }
+        modelName: 'foundcaches'
+    },
 );
 
-module.exports = Caches;
+module.exports = FoundCaches;
