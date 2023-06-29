@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class Caches extends Model {}
 
-Cache.init(
+Caches.init(
     {
         id: {
             type: DataTypes.INTEGER,
