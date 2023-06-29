@@ -13,7 +13,7 @@ const seedDatabase = async () => {
         individualHooks: true,
         returning: true
     });
-
+    
     for (const cache of cacheData) {
         await Caches.create({
             ...cache,
@@ -22,14 +22,14 @@ const seedDatabase = async () => {
     };
 
     //foundcaches here
-    for (const foundCache of foundCacheData) {
-        await FoundCaches.create({
-            ...foundCache,
-            cache_id: caches[Math.floor(Math.random() * caches.length)].id,
-            finder_id: users[Math.floor(Math.random() * users.length)].id,
-            times_found: Math.floor(Math.random(), 10)
-        });
-    };
+    // for (const foundCache of foundCacheData) {
+    //     await FoundCaches.create({
+    //         ...foundCache,
+    //         cache_id: caches[Math.floor(Math.random() * caches.length)].id,
+    //         finder_id: users[Math.floor(Math.random() * users.length)].id,
+    //         times_found: Math.floor(Math.random(), 10)
+    //     });
+    // };
     process.exit(0);
 };
 
