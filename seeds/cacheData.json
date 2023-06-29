@@ -1,0 +1,48 @@
+[
+    {
+        "name": "musCache",
+        "lat": "41.994",
+        "lon": "-87.66022",
+        "hints": "mustache this cache"
+
+    },
+    {
+        "name": "donutCacheMe",
+        "lat": "41.965573",
+        "lon": "-87.65894",
+        "hints": "#findthedonuts"
+
+    },
+    {
+        "name": "pierCache",
+        "lat": "41.891954",
+        "lon": "-87.604817",
+        "hints": "ferris wheel"
+
+    },
+    {
+        "name": "Cachemoney",
+        "lat": "41.87833",
+        "lon": "-87.63252568"
+    },
+    {
+        "name": "scache",
+        "lat": "41.862082",
+        "lon": "-87.616478",
+        "hints": "out here in the fields"
+
+    },
+    {
+        "name": "flight2Cache",
+        "lat": "41.980772",
+        "lon": "-87.905677",
+        "hints": "international arrivals"
+
+    },
+    {
+        "name": "cache7",
+        "lat": "41.886535",
+        "lon": "-87.719318",
+        "hints": "outdoors, small box"
+    }
+]
