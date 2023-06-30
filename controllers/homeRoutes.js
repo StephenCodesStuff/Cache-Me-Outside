@@ -24,9 +24,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
-
 //GET profile page
 router.get('/profile', withAuth, async (req, res) => {
   res.render('profile', { logged_in: req.session.logged_in })

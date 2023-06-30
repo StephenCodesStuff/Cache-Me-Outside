@@ -37,11 +37,11 @@ router.get('/:id', async (req, res) => {
 
 
 //CREATE new cache
-router.post('/',  async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newCache = await Caches.create({
             ...req.body,
-            hider_id: req.session.hider_id,
+            hider_id: req.session.user_id,
           });
       
           res.status(200).json(newCache);
@@ -53,12 +53,12 @@ router.post('/',  async (req, res) => {
 //UPDATE cache
 
 //DELETE cache
-router.delete('/:id',  async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
       const cacheData = await Caches.destroy({
         where: {
           id: req.params.id,
-          hider_id: req.session.hider_id,
+          hider_id: req.session.user_id,
         },
       });
       if(!cacheData) {
