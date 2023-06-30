@@ -1,10 +1,38 @@
 [
     {
+        "cache_id": "1",
+        "isFound": "true",
+        "times_found": "1"
     },
     {
+        "cache_id": "2",
+        "isFound": "false",
+        "times_found": "0"
     },
     {
+        "cache_id": "3",
+        "isFound": "true",
+        "times_found": "3"
     },
     {
+        "cache_id": "4",
+        "isFound": "true",
+        "times_found": "1"
+    },
+    {
+        "cache_id": "5",
+        "isFound": "true",
+        "times_found": "2"
+    }, 
+    {
+        "cache_id": "6",
+        "isFound": "true",
+        "times_found": "8"
+    },
+    {
+        "cache_id": "7",
+       "isFound": "true",
+        "times_found": "1"
     }
+
 ]
