@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
 
 
 //CREATE new cache
-router.post('/', withAuth, async (req, res) => {
+router.post('/',  async (req, res) => {
     try {
         const newCache = await Caches.create({
             ...req.body,
@@ -53,7 +53,7 @@ router.post('/', withAuth, async (req, res) => {
 //UPDATE cache
 
 //DELETE cache
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id',  async (req, res) => {
     try {
       const cacheData = await Caches.destroy({
         where: {
