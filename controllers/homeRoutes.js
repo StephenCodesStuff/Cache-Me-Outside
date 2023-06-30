@@ -24,16 +24,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-      res.render('homepage', {
-          caches,
-          logged_in: req.session.logged_in
-      });
 
-  } catch (err) {
-    console.log(err);
-      res.status(500).json(err);
-  }
-});
+
 
 //GET profile page
 router.get('/profile', withAuth, async (req, res) => {
