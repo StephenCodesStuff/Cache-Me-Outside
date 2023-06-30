@@ -1,7 +1,10 @@
 const router = require('express').Router();
-const { Caches } = require('../../models');
+const { log } = require('console');
+const { Caches, User } = require('../../models');
 const withAuth = require('../../utils/auth')
 
+
+//CREATE new cache
 router.post('/', withAuth, async (req, res) => {
     try {
         const newCache = await Caches.create({
@@ -14,5 +17,7 @@ router.post('/', withAuth, async (req, res) => {
           res.status(400).json(err);
         }
   });
+
+
 
 module.exports = router;
