@@ -14,8 +14,9 @@
 
                 <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                     <div class="portfolio-wrap">
-                        <a href="assets/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app"
-                            class="glightbox"><img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a>
+                        <div id="map-{{id}}" style="height: 180px;"></div>
+                        {{!-- <a href="assets/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app"
+                            class="glightbox"><img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a> --}}
                         <div class="portfolio-info">
                             <h4><a href="/cache/{{id}}" title="More Details">{{name}}</a></h4>
                             <p>Location: {{lat}},{{lon}}</p>
@@ -32,3 +33,5 @@
 
     </div>
 </section>
+
+<script src="assets/js/mapstuff.js"></script>

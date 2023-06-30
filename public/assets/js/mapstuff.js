@@ -1,6 +1,19 @@
-let myMap = L.map("map").setView([37.61, -122.011], 10);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    // Attribution is obligatory as per copyright!
-	maxZoom: 20
-}).addTo(myMap);
+const displayMaps= async () => {
+
+const cacheData = await fetch(`/`, {
+    method: 'GET',
+    body: JSON.stringify({id, lat, lon}),
+    header: {
+        'Content-Type': 'application/json'
+    },
+})
+
+for (let index = 0; index < array.length; index++) {
+    let map = L.map(`map-id`).setView([41.994, -87.6602], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 10,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var marker = L.marker([41.994, -87.6602]).addTo(map);
+}
+}
