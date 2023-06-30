@@ -10,10 +10,10 @@ router.get('/', async (req, res) => {
           {include: {model: User}}
       );
 
-      const dbCaches = cacheData.map((caches) =>
+      const caches = cacheData.map((caches) =>
       caches.get({ plain: true })
       );
-      res.status(200).json(dbCaches);
+      res.status(200).json(caches);
   } catch (err) {
     console.log(err);
       res.status(500).json(err);
