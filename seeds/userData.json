@@ -13,5 +13,10 @@
         "username": "KrustyKT",
         "email": "ktkat@krustyeddieskapers.com",
         "password": "passinGAS123"
+    },
+    {
+        "username": "test",
+        "email": "test@test.com",
+        "password": "test1234"
     }
 ]
