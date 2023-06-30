@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Caches } = require('../models');
 const withAuth = require('../utils/auth');
 
-
+//GET homepage 
 router.get('/', async (req, res) => {
   res.render('homepage', {logged_in: req.session.logged_in});
 });
@@ -19,8 +19,8 @@ router.get('/', async (req, res) => {
 //   res.render('login');
 // });
 
+//GET profile page
 router.get('/profile', withAuth, async (req, res) => {
   res.render('profile', {logged_in: req.session.logged_in})
 });
-
 module.exports = router;
