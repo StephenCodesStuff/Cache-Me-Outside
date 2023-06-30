@@ -14,12 +14,13 @@ const seedDatabase = async () => {
         returning: true
     });
 
-    for (const cache of cacheData) {
-        await Caches.create({
-            ...cache,
-            hider_id: users[Math.floor(Math.random() * users.length)].id
-        });
-    };
+    // for (const cache of cacheData) {
+    //     await Caches.create({
+    //         ...cache,
+    //         hider_id: users[Math.floor(Math.random() * users.length)].id
+    //     });
+    // };
+await Caches.bulkCreate(cacheData);
 
     //foundcaches here
     for (const foundCache of foundCacheData) {
