@@ -26,6 +26,13 @@ Caches.init(
         hints: {
             type: DataTypes.STRING
         },
+        description: {
+            type: DataTypes.STRING
+        },
+        difficulty: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         hider_id:{
             type: DataTypes.INTEGER,
             references: {

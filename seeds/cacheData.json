@@ -1,48 +1,272 @@
 [
     {
         "name": "musCache",
-        "lat": "41.994",
-        "lon": "-87.66022",
-        "hints": "mustache this cache"
-
+        "lat": 41.994,
+        "lon": -87.66022,
+        "hints": "Check near the tree stump.",
+        "description": "A whimsical cache hidden in a scenic park. Keep an eye out for the tree stump hiding this treasure. Can you mustache this cache?",
+        "difficulty": 2,
+        "hider_id": 1
     },
     {
         "name": "donutCacheMe",
-        "lat": "41.965573",
-        "lon": "-87.65894",
-        "hints": "#findthedonuts"
-
+        "lat": 41.965573,
+        "lon": -87.65894,
+        "hints": "Look under the bench.",
+        "description": "A deliciously tempting cache hidden near a popular bakery. Explore the area and #findthedonuts. Will you be able to satisfy your geocaching cravings?",
+        "difficulty": 3,
+        "hider_id": 2
     },
     {
         "name": "pierCache",
-        "lat": "41.891954",
-        "lon": "-87.604817",
-        "hints": "ferris wheel"
-
+        "lat": 41.891954,
+        "lon": -87.604817,
+        "hints": "Search near the lighthouse.",
+        "description": "A cache located near a famous pier. Enjoy the stunning views and the iconic ferris wheel while seeking this cache. Can you uncover the hidden treasure?",
+        "difficulty": 4,
+        "hider_id": 3
     },
     {
         "name": "Cachemoney",
-        "lat": "41.87833",
-        "lon": "-87.63252568"
+        "lat": 41.87833,
+        "lon": -87.63252568,
+        "hints": "Explore the nearby statue.",
+        "description": "Discover a cache hidden in the heart of the city. This cache offers a moderate challenge and is located near a famous statue. Can you find the cachemoney?",
+        "difficulty": 3,
+        "hider_id": 1
     },
     {
         "name": "scache",
-        "lat": "41.862082",
-        "lon": "-87.616478",
-        "hints": "out here in the fields"
-
+        "lat": 41.862082,
+        "lon": -87.616478,
+        "hints": "Check under the bridge.",
+        "description": "An adventurous cache hidden near a picturesque bridge. Explore the fields and follow the hint to uncover this scache. Happy hunting!",
+        "difficulty": 2,
+        "hider_id": 2
     },
     {
         "name": "flight2Cache",
-        "lat": "41.980772",
-        "lon": "-87.905677",
-        "hints": "international arrivals"
-
+        "lat": 41.980772,
+        "lon": -87.905677,
+        "hints": "Look near the departure gates.",
+        "description": "Embark on a cache adventure at an international airport. Find the cache near the bustling departure gates. Will you catch this flight2Cache?",
+        "difficulty": 4,
+        "hider_id": 3
     },
     {
         "name": "cache7",
-        "lat": "41.886535",
-        "lon": "-87.719318",
-        "hints": "outdoors, small box"
+        "lat": 41.886535,
+        "lon": -87.719318,
+        "hints": "Search near the picnic area.",
+        "description": "A hidden treasure awaits in the great outdoors. Explore the scenic surroundings and find this cache hidden in a small box near the picnic area.",
+        "difficulty": 2,
+        "hider_id": 1
+    },
+    {
+        "name": "Cache Me If You Can",
+        "lat": 41.8781,
+        "lon": -87.6298,
+        "hints": "Look behind the bench.",
+        "description": "A hidden cache located near Millennium Park in downtown Chicago. This cache offers a moderate challenge and beautiful views of the city skyline.",
+        "difficulty": 3,
+        "hider_id": 1
+    },
+    {
+        "name": "Betcha Can't Find This Cache",
+        "lat": 41.8869,
+        "lon": -87.6496,
+        "hints": "Search near the fountain.",
+        "description": "An exciting cache hidden in Grant Park. The cache is cleverly disguised and requires some problem-solving skills to find. Enjoy the scenic surroundings while hunting for this cache!",
+        "difficulty": 5,
+        "hider_id": 2
+    },
+    {
+        "name": "Lays: Betcha Cache Find This Cache",
+        "lat": 41.9231,
+        "lon": -87.6389,
+        "hints": "Explore the nearby trees.",
+        "description": "A beginner-friendly cache located in Lincoln Park. This cache is a great starting point for geocaching enthusiasts. It offers a simple hide-and-seek experience for beginners to enjoy.",
+        "difficulty": 2,
+        "hider_id": 1
+    },
+    {
+        "name": "The Mysterious Cache of Evanston",
+        "lat": 42.0495,
+        "lon": -87.6772,
+        "hints": "Check the park's entrance.",
+        "description": "Hidden within the scenic park of Evanston, this cache offers a moderate challenge. It requires some careful searching around the park's entrance to uncover the hidden treasure.",
+        "difficulty": 4,
+        "hider_id": 3
+    },
+    {
+        "name": "Cache-tastic Adventure in Oak Lawn",
+        "lat": 41.8334,
+        "lon": -87.732,
+        "hints": "Look near the playground.",
+        "description": "Located in a suburban neighborhood in Oak Lawn, this cache provides a fun adventure for families. Explore the park, follow the hints, and discover the cache near the playground area.",
+        "difficulty": 3,
+        "hider_id": 2
+    },
+    {
+        "name": "The Navy Pier Cache Quest",
+        "lat": 41.8789,
+        "lon": -87.9403,
+        "hints": "Search around the landmark.",
+        "description": "Discover this urban cache hidden near the famous Navy Pier. It requires some clever thinking to uncover its secret location. Enjoy the vibrant atmosphere of the pier while seeking this cache.",
+        "difficulty": 4,
+        "hider_id": 1
+    },
+    {
+        "name": "The Hidden Gem of Palos Hills",
+        "lat": 41.7986,
+        "lon": -87.7816,
+        "hints": "Look near the trail.",
+        "description": "This cache is tucked away in the scenic trails of Palos Hills. It offers a moderate challenge, with a rewarding find for avid geocachers. Explore the beautiful surroundings while searching for this cache.",
+        "difficulty": 4,
+        "hider_id": 3
+    },
+    {
+        "name": "Glenview's Gazebo Cache Adventure",
+        "lat": 42.0644,
+        "lon": -87.9921,
+        "hints": "Search near the gazebo.",
+        "description": "Embark on an exciting cache adventure in the charming suburb of Glenview. This cache presents a moderate challenge, and its hiding spot near the gazebo adds to the adventure of the search.",
+        "difficulty": 3,
+        "hider_id": 2
+    },
+    {
+        "name": "The Enigmatic Cache Quest",
+        "lat": 42.0106,
+        "lon": -87.8437,
+        "hints": "Look near the baseball field.",
+        "description": "Located in Skokie's neighborhood park, this cache offers a fun experience for all ages. Use the hints to navigate your way to the cache hidden near the baseball field.",
+        "difficulty": 2,
+        "hider_id": 1
+    },
+    {
+        "name": "Nature's Treasure: Cache Expedition",
+        "lat": 41.9834,
+        "lon": -87.8606,
+        "hints": "Search around the pond.",
+        "description": "A nature-themed cache tucked away in the serene forest preserve of Northbrook. Explore the trails, listen to the sounds of nature, and find the cache hidden near the pond.",
+        "difficulty": 3,
+        "hider_id": 3
+    },
+    {
+        "name": "Bridge of Secrets Cache Challenge",
+        "lat": 41.9575,
+        "lon": -87.7586,
+        "hints": "Look under the bridge.",
+        "description": "Hidden beneath a picturesque bridge in Brookfield, this cache offers a moderate challenge. Take in the beauty of the surrounding landscape while searching for this cache.",
+        "difficulty": 4,
+        "hider_id": 2
+    },
+    {
+        "name": "The Artful Cache Quest",
+        "lat": 41.8843,
+        "lon": -87.6276,
+        "hints": "Check near the sculpture.",
+        "description": "An art-themed cache near the Art Institute of Chicago. Explore the area, enjoy the stunning artwork, and use your observation skills to locate this cache.",
+        "difficulty": 3,
+        "hider_id": 1
+    },
+    {
+        "name": "Family Adventure at Emily Oaks",
+        "lat": 42.0119,
+        "lon": -87.8406,
+        "hints": "Look near the picnic area.",
+        "description": "A family-friendly cache nestled in the lovely picnic area of Emily Oaks Nature Center. Enjoy a day in nature while searching for this cache hidden among the trees.",
+        "difficulty": 2,
+        "hider_id": 3
+    },
+    {
+        "name": "Playground Puzzler Cache",
+        "lat": 41.9855,
+        "lon": -87.8411,
+        "hints": "Explore the playground.",
+        "description": "Located near a vibrant playground in Morton Grove, this cache provides an exciting adventure for children and families. Follow the hints to uncover the hidden cache.",
+        "difficulty": 3,
+        "hider_id": 2
+    },
+    {
+        "name": "Park Adventure: Canine Edition",
+        "lat": 41.8456,
+        "lon": -87.8267,
+        "hints": "Search near the dog park.",
+        "description": "Hidden within the dog-friendly park of Oak Park, this cache offers a moderate challenge. Enjoy the park's amenities while searching for this cache near the dog park area.",
+        "difficulty": 4,
+        "hider_id": 1
+    },
+    {
+        "name": "Berwyn Bonanza: Cache Hunter",
+        "lat": 41.8506,
+        "lon": -87.7937,
+        "hints": "Explore the nearby trails.",
+        "description": "Located near the heart of Berwyn, this cache presents a moderate challenge. Explore the area and keep an eye out for the cache hidden near the community center.",
+        "difficulty": 3,
+        "hider_id": 3
+    },
+    {
+        "name": "The Great Escape: Cache Edition",
+        "lat": 42.0334,
+        "lon": -87.7416,
+        "hints": "Search around the historical landmark.",
+        "description": "A cache hidden near a historical landmark in Wilmette. Immerse yourself in history while seeking this cache, which offers a moderate challenge to geocachers.",
+        "difficulty": 4,
+        "hider_id": 2
+    },
+    {
+        "name": "The Garden of Cache Delights",
+        "lat": 41.8786,
+        "lon": -87.8035,
+        "hints": "Look near the public garden.",
+        "description": "A cache hidden in the lush public garden of Forest Park. Enjoy the tranquility of the garden while searching for this cache, which offers a moderate challenge.",
+        "difficulty": 3,
+        "hider_id": 1
+    },
+    {
+        "name": "Beachcomber's Delight Cache",
+        "lat": 42.0406,
+        "lon": -87.7413,
+        "hints": "Search near the beach area.",
+        "description": "A beach-themed cache located near a scenic beach in Winnetka. Soak up the sun and sand while searching for this cache, which presents a moderate challenge.",
+        "difficulty": 4,
+        "hider_id": 3
+    },
+    {
+        "name": "Nature's Trail: Cache Adventure",
+        "lat": 42.0464,
+        "lon": -87.9104,
+        "hints": "Look near the nature trail.",
+        "description": "Hidden within the serene nature trail of Des Plaines, this cache offers a peaceful and moderate challenge. Immerse yourself in nature while searching for this cache.",
+        "difficulty": 3,
+        "hider_id": 2
+    },
+    {
+        "name": "Goal Hunter: Soccer Cache",
+        "lat": 42.0542,
+        "lon": -87.8408,
+        "hints": "Check near the soccer field.",
+        "description": "A cache hidden near the bustling soccer field in Niles. Enjoy the energetic atmosphere while searching for this cache, which offers a moderate challenge.",
+        "difficulty": 3,
+        "hider_id": 1
+    },
+    {
+        "name": "Shopping Spree: Cache Edition",
+        "lat": 42.0423,
+        "lon": -87.8431,
+        "hints": "Search near the shopping center.",
+        "description": "Located near a popular shopping center in Skokie, this cache offers a moderate challenge. Take a break from shopping to search for this hidden treasure.",
+        "difficulty": 4,
+        "hider_id": 3
+    },
+    {
+        "name": "Urban Enigma: Downtown Cache",
+        "lat": 41.8875,
+        "lon": -87.6259,
+        "hints": "Explore the nearby alleyway.",
+        "description": "A cache hidden in an interesting alleyway in downtown Chicago. Embrace the urban environment while searching for this cache, which presents a moderate challenge.",
+        "difficulty": 3,
+        "hider_id": 2
     }
 ]
