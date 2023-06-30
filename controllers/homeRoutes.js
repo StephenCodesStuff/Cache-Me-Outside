@@ -41,7 +41,6 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 //GET one cache by id
 router.get('/cache/:id', async (req, res) => {
   try {
