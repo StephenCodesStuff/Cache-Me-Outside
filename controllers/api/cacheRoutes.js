@@ -18,6 +18,28 @@ router.post('/', withAuth, async (req, res) => {
         }
   });
 
+//UPDATE cache
+
+//DELETE cache
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+      const cacheData = await Caches.destroy({
+        where: {
+          id: req.params.id,
+          hider_id: req.session.hider_id,
+        },
+      });
+      if(!cacheData) {
+        res.status(404).json({ message: 'No cache found with this id, u idiot!' });
+        return;
+      }
+      console.log(`u deleted cache ${req.params.id} doofus`);
+      res.status(200).json(cacheData);
+    } catch (err) {
+      res.status(500).json(err);
+      console.log('u broke it u moron', err);
+    }
+  });
 
 
 module.exports = router;
