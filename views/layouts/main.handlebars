@@ -62,8 +62,6 @@
 
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
                 <h1>Impact<span>.</span></h1>
             </a>
             <nav id="navbar" class="navbar">
@@ -78,33 +76,9 @@
                     {{else}}
                     <li><a id="loginButton" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
                     {{/if}}
-                    {{!-- <li><a href="blog.html">Blog</a></li> --}}
-                    {{!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i
-                                class="bi bi-chevron-down dropdown-indicator"></i></a>
-                        <ul>
-                            <li><a href="#">Drop Down 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
-                                        class="bi bi-chevron-down dropdown-indicator"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Drop Down 2</a></li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav><!-- .navbar --> --}}
 
-            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
+                    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+                    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         </div>
     </header><!-- End Header -->
     <!-- End Header -->
@@ -183,60 +157,7 @@
         </div>
 
         {{!-- login/signup modal --}}
-        <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 id="modalTitleH1" class="modal-title fs-5" id="staticBackdropLabel">Login/Signup</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                <form class="form login-form">
-                                    <div class="form-group">
-                                        <label for="username-login">Username:</label>
-                                        <input class="form-input" type="text">
-                                        <label for="password-login">Password:</label>
-                                        <input class="form-input" type="password" id="password-login" />
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Login!</button>
-                                    </div>
-                                </form>
-                                </div>
-                                <div class="col">
-                                     <form class="form signup-form">
-                                    <div class="form-group">
-                                        <label for="name-signup">Username:</label>
-                                        <input class="form-input" type="text" id="name-signup" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email-signup">Email:</label>
-                                        <input class="form-input" type="text" id="email-signup" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password-signup">Password:</label>
-                                        <input class="form-input" type="password" id="password-signup" />
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Signup!</button>
-                                    </div>
-                                </form>
-                                </div>
-
-                               
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </footer><!-- End Footer -->
+<!-- End Footer -->
     <!-- End Footer -->
 
     <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
@@ -254,7 +175,7 @@
     <script src="assets/vendor/php-email-form/validate.js"></script>
 
     {{!-- Custom JS files --}}
-    <script src="assets/js/loginModal.js"></script>
+    <script src="assets/js/login.js"></script>
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
