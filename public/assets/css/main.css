@@ -1050,7 +1050,7 @@ section {
 
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: var(--color-secondary));
+  color: var(--color-secondary);
   font-size: 26px;
   line-height: 0;
 }
@@ -1293,7 +1293,7 @@ section {
 }
 
 .portfolio-details .portfolio-info .btn-visit:hover {
-  backgroundsecondary-);
+  background: var(--color-primary-dark);
 }
 
 .portfolio-details .portfolio-description h2 {
@@ -1337,7 +1337,7 @@ section {
 
 .portfolio-details .portfolio-description .testimonial-item .quote-icon-left,
 .portfolio-details .portfolio-description .testimonial-item .quote-icon-right {
-  colorsecondary-);
+  color: #6c757d;
   font-size: 26px;
   line-height: 0;
 }
