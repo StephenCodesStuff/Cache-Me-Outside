@@ -1,48 +1,47 @@
-<section id="portfolio-details" class="portfolio-details">
-      <div class="container" data-aos="fade-up">
+<section>
+  <div class="container">
 
-        <div class="position-relative h-100">
-          <div class="slides-1 portfolio-details-slider swiper">
-            <div class="swiper-wrapper align-items-center">
+    <div class="position-relative">
+      <div>
+        <div class="align-items-center">
 
-              <div class="swiper-slide">
-                <img src="assets/img/portfolio/app-1.jpg" alt="">
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
+          <div>
+            <div id="selected-map"></div>
           </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-
         </div>
-
-        <div class="row justify-content-between gy-4 mt-4">
-
-          <div class="col-lg-8">
-            <div class="portfolio-description">
-              <h2>{{cache.name}}</h2>
-              <p>
-                {{cache.description}}
-              </p>
-
-            </div>
-          </div>
-
-          <div class="col-lg-3">
-            <div class="portfolio-info">
-              <h3>Cache Info:</h3>
-              <ul>
-                <li><strong>Cache Name:</strong> <span>{{cache.name}}</span></li>
-                <li><strong>Latitude</strong> <span>{{cache.lat}}</span></li>
-                <li><strong>Longitude</strong> <span>{{cache.lon}}</span></li>
-                <li><strong>Hidden Since:</strong> <span>{{format_date cache.createdAt}}</span></li>
-                <li><strong>Difficulty: </strong>{{cache.difficulty}}</li>
-                <li><strong>Hidden By: </strong>{{cache.user.username}}</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
       </div>
-    </section>
+
+    </div>
+
+    <div class="row justify-content-between gy-4 mt-4">
+
+      <div class="col-lg-8">
+        <div class="portfolio-description">
+          <h2>{{cache.name}}</h2>
+          <p>
+            {{cache.description}}
+          </p>
+
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="portfolio-info">
+          <h3>Cache Info:</h3>
+          <ul>
+            <li><strong>Cache Name:</strong> <span>{{cache.name}}</span></li>
+            <li><strong>Latitude</strong> <span id="lat">{{cache.lat}}</span></li>
+            <li><strong>Longitude</strong> <span id="lon">{{cache.lon}}</span></li>
+            <li><strong>Hidden Since:</strong> <span>{{format_date cache.createdAt}}</span></li>
+            <li><strong>Difficulty: </strong>{{cache.difficulty}}</li>
+            <li><strong>Hidden By: </strong>{{cache.user.username}}</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script src="/assets/js/expandedDetailsMap.js"></script>
