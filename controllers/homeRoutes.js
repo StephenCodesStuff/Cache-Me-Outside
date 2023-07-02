@@ -26,7 +26,24 @@ router.get('/', async (req, res) => {
 
 //GET profile page
 router.get('/profile', withAuth, async (req, res) => {
-  res.render('profile', { logged_in: req.session.logged_in })
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Caches }],
+    });
+
+    const user = userData.get({ plain: true });
+    console.log(userData)
+    
+    console.log(userData.caches)
+
+    res.render('profile', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 
