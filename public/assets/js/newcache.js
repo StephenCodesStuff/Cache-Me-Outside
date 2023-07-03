@@ -32,12 +32,14 @@ const cacheFormHandler = async (event) => {
   } catch (error) {
     console.log("Error getting location:", error);
   }
+  const lon = currentLocation.latitude
+  const lat = currentLocation.longitude
 
   const name = document.querySelector('#cache-name').value.trim();
   const hints = document.querySelector('#cache-hints').value.trim();
   const description = document.querySelector('#cache-description').value.trim();
   const difficulty = document.querySelector('#cache-difficulty').value;
-  console.log(name, hints, description, difficulty, currentLocation);
+  console.log(name, hints, description, difficulty, lon, lat);
 };
 
 document.querySelector('.new-cache-form').addEventListener('submit', cacheFormHandler);
