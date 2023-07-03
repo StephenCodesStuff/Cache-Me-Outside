@@ -16,3 +16,16 @@
 .form-input {
     margin: 10px;
 }
+
+.leaflet-map {
+    height: 200px !important;
+}
+
+#big-map {
+    height: 50%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    border-radius: 10px
+}

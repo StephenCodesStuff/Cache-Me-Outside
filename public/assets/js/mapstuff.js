@@ -1,30 +1,37 @@
-const displayMaps= () => {
+mapboxgl.accessToken = 'pk.eyJ1IjoibWNobWVkaWEiLCJhIjoiY2xqbHJ3MDByMHVqcjNocGJiZnZoMGI2biJ9.Hn1DeJrMYc1622-RKUH-fA';
 
-fetch(`/api/cache`).then(function (response) {
-    return response.json();
-}).then(function (data) {
-    for(let i = 0; i< data.length; i++) {
-        console.log(data[i]);
-        let map = L.map(`map-${data[i].id}`).setView([data[i].lat, data[i].lon], 20);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 20,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-    var marker = L.marker([data[i].lat, data[i].lon]).addTo(map);
-    }
-})
+    const map = new mapboxgl.Map({
+        container: 'big-map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-87.84, 42.0],
+        zoom: 10
+    });
+
+  
+const displayMaps = () => {
 
 
 
-    
+    fetch('/api/cache')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            for (let i = 0; i < data.length; i++) {
+                const marker = new mapboxgl.Marker()
+                    .setLngLat([data[i].lon, data[i].lat])
+                    .addTo(map);
+            }
+        return map;
+    })
 
+        .catch(function (error) {
+            console.error('Error fetching data:', error);
+        });
 }
+    function zoomMap(lat, lon) {
+        map.setCenter([lon, lat]);
+        map.setZoom(17);
+    }
 
-displayMaps()
-
-// let map = L.map(`map-1`).setView([50, 50], 13);
-//     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//         maxZoom: 10,
-//         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-//     }).addTo(map);
-//     var marker = L.marker([50, 50]).addTo(map);
+displayMaps();
