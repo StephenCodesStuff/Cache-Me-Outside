@@ -58,7 +58,9 @@
                     <li><a href="/#about">How to Play</a></li>
                     {{!-- <li><a href="#services">Services</a></li> --}}
                     <li><a href="/#portfolio">Caches</a></li>
+                    {{!-- <li><a href="/new-cache" data-bs-toggle="modal" data-bs-target="#createModal">New Cache</a></li> --}}
                     {{#if logged_in}}
+                    <li><a href="/new-cache">New Cache</a></li>
                     <li><a href="/profile">Profile</a></li>
                     <li><a id="logout" class="logout">Logout</a></li>
                     {{else}}
@@ -143,6 +145,7 @@
 
     {{#if logged_in}}
     <script src="/assets/js/logout.js"></script>
+    
     {{else}}
     <script src="/assets/js/login.js"></script>
     <script src="/assets/js/signup.js"></script>
