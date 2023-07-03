@@ -18,19 +18,18 @@
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-             <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <div id="map-{{cache.cache_id}}" style="height: 180px;"></div>
-                        {{!-- <a href="assets/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app"
-                            class="glightbox"><img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a> --}}
-                        <div class="portfolio-info">
-                            <h4><a href="/cache/{{id}}" title="More Details">{{cache.name}}</a></h4>
-                            <p>Location: {{cache.lat}},{{cache.lon}}</p>
-                            <p>Difficulty: {{cache.difficulty}}</p>
-                            <p>Hidden by: {{cache.user.username}}</p>
-                        </div>
-                    </div>
+              <div class="col-xl-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                  {{!-- <a href="assets/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app"
+                    class="glightbox"><img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a> --}}
+                  <div class="portfolio-info">
+                    <h4><a href="/cache/{{id}}" title="More Details">{{cache.name}}</a></h4>
+                    <p>Location: {{cache.lat}},{{cache.lon}}</p>
+                    <p>Difficulty: {{cache.difficulty}}</p>
+                    <p>Hidden by: {{cache.user.username}}</p>
+                  </div>
                 </div>
+              </div>
             </div>
           </div>
         </div>
