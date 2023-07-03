@@ -1293,7 +1293,8 @@ section {
 }
 
 .portfolio-details .portfolio-info .btn-visit:hover {
-  backgroundsecondary-);
+  background: var(--color-secondary);
+>>>>>>>>> Temporary merge branch 2
 }
 
 .portfolio-details .portfolio-description h2 {
