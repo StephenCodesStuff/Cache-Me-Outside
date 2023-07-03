@@ -1,74 +1,39 @@
-<h1>You are logged in</h1>
+<section id="portfolio" class="portfolio sections-bg">
+  <div class="container" data-aos="fade-up">
 
-<div class="container text-center">
-  <div class="row align-items-start">
-    <div class="col">
-      Welcome Back {{username}}
-
+    <div class="section-header">
+      <h2>Welcome, {{username}}</h2>
+      <p>Your hidden caches:</p>
+      <button></button>
     </div>
-    <div class="col">
-      <div class="accordion" id="accordionExample">
-        {{#each caches as |cache|}}
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-              aria-expanded="true" aria-controls="collapseOne">
-              {{cache.name}}
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  {{!-- <a href="assets/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app"
-                    class="glightbox"><img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a> --}}
-                  <div class="portfolio-info">
-                    <h4><a href="/cache/{{id}}" title="More Details">{{cache.name}}</a></h4>
-                    <p>Location: {{cache.lat}},{{cache.lon}}</p>
-                    <p>Difficulty: {{cache.difficulty}}</p>
-                    <p>Hidden by: {{cache.user.username}}</p>
-                  </div>
-                </div>
+
+    <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
+      data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+      <div id="big-map"></div>
+      <div class="scrollable m-4">
+        <div class="row gy-4 portfolio-container">
+
+
+          {{#each caches as |cache|}}
+
+          <div class="col-xl-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <div class="portfolio-info" onclick="zoomMap({{lat}},{{lon}})">
+                <h4><a href="/cache/{{id}}" title="More Details">{{name}}</a></h4>
+                <p><a>Location: {{lat}}, {{lon}}</a></p>
+                <p>Difficulty: {{difficulty}}</p>
+                <a href="/cache/{{id}}">More Details</a>
+                <p>_________________</p>
+                <a class="" href="">Delete Cache</a>
               </div>
             </div>
           </div>
-        </div>
-        {{/each}}
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Accordion Item #2
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
-              plugin adds the appropriate classes that we use to style each element. These classes control the overall
-              appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
-              CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-              <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Accordion Item #3
-            </button>
-          </h2>
-          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
-              plugin adds the appropriate classes that we use to style each element. These classes control the overall
-              appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
-              CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-              <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-          </div>
+          {{/each}}
         </div>
       </div>
-    </div>
+    </div><!-- End Portfolio Container -->
   </div>
-</div>
+
+  </div>
+  <script src="/assets/js/UserCacheListMap.js"></script>
+</section>
