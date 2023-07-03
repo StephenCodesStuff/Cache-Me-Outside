@@ -46,6 +46,27 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+router.get('/new-cache', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Caches }],
+    });
+
+    const user = userData.get({ plain: true });
+    console.log(userData)
+    
+    console.log(userData.caches)
+
+    res.render('new-cache', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 //GET one cache by id
 router.get('/cache/:id', async (req, res) => {
