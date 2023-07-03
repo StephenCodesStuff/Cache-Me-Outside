@@ -1,3 +1,9 @@
+:root {
+    --color-default: #222222;
+    --color-primary: #f08076 ;
+    --color-secondary: #80D19B  ;
+  }
+
 .modal-title {
     font-size: 18px;
     font-weight: 600;
@@ -42,4 +48,40 @@
     align-items: center;
     display: flex;
     border-radius: 10px;
+}
+
+.modal-content {
+    background-color: #80D19B;
+    opacity: 0.85;
+}
+
+.modal-button {
+    background-color: var(--color-primary);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 10px;
+
+}
+
+.modal-button:hover {
+    background-color: #e6a29c;
+    color: #fff;
+}
+
+.form-input {
+    border-radius: 5px;
+    border: none;
+}
+
+.modal-form-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
 }
