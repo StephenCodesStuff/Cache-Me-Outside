@@ -4,7 +4,7 @@ fetch(`/api/cache`).then(function (response) {
     return response.json();
 }).then(function (data) {
     for(let i = 0; i< data.length; i++) {
-        console.log(data[i]);
+        // console.log(data[i]);
         let map = L.map(`map-${data[i].id}`).setView([data[i].lat, data[i].lon], 20);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 20,
