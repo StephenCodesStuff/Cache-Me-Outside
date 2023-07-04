@@ -35,7 +35,15 @@ router.get('/user/:id', async (req, res) => {
     try {
         const foundCacheData = await FoundCaches.findAll({
             where: { finder_id: req.params.id },
-            include: { model: User, Caches }
+            include: [
+                { 
+                    model: User,
+                    attributes: ['id', 'username']
+                },
+                {
+                    model: Caches,
+                    attributes: ['id', 'name', 'description', 'lat', 'lon', 'hider_id'],
+                }]
         });
 
         const foundCaches = foundCacheData.map((foundCaches) =>
