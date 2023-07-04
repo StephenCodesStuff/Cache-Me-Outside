@@ -428,7 +428,7 @@ section {
     font-size: 15px;
     text-transform: none;
     font-weight: 600;
-    color: #006a5d;
+    color: var(--color-secondary);
   }
 
   .navbar .dropdown ul a i {
@@ -499,7 +499,7 @@ section {
     inset: 0;
     padding: 50px 0 10px 0;
     margin: 0;
-    background: rgba(0, 131, 116, 0.9);
+    background: var(--color-secondary);
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
@@ -545,7 +545,7 @@ section {
   .navbar .getstarted:hover,
   .navbar .getstarted:focus:hover {
     color: #fff;
-    background: rgba(0, 131, 116, 0.8);
+    background: var(--color-primary-hover);
   }
 
   .navbar .dropdown ul,
@@ -1050,7 +1050,7 @@ section {
 
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: var(--color-secondary));
+  color: var(--color-secondary);
   font-size: 26px;
   line-height: 0;
 }
@@ -1293,7 +1293,8 @@ section {
 }
 
 .portfolio-details .portfolio-info .btn-visit:hover {
-  backgroundsecondary-);
+  background: var(--color-secondary);
+>>>>>>>>> Temporary merge branch 2
 }
 
 .portfolio-details .portfolio-description h2 {
@@ -1337,7 +1338,7 @@ section {
 
 .portfolio-details .portfolio-description .testimonial-item .quote-icon-left,
 .portfolio-details .portfolio-description .testimonial-item .quote-icon-right {
-  colorsecondary-);
+  color: #6c757d;
   font-size: 26px;
   line-height: 0;
 }
@@ -1897,6 +1898,7 @@ section {
   font-family: var(--font-primary);
   font-weight: 500;
   font-size: 15px;
+  text-align: center;
   letter-spacing: 1px;
   display: inline-block;
   padding: 14px 40px;
@@ -1906,6 +1908,7 @@ section {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
   border: 2px solid rgba(255, 255, 255, 0.1);
+  width: 75%;
 }
 
 .hero .btn-get-started:hover {

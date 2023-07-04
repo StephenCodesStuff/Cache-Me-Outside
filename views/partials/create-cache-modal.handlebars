@@ -1,0 +1,91 @@
+<div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 id="modalTitleH1" class="modal-title fs-5" id="staticBackdropLabel">Make a new Cache</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        
+                            <form class="form cache-form">
+                                <div class="form-group">
+                                    <label for="cache-name">Cache Name</label>
+                                    <input class="form-input" type="text" id="cache-name">
+                                    <label for="cache-hints">Hint</label>
+                                    <input class="form-input" type="text" id="cache-hints">
+                                    <label for="cache-description">Describe the Location</label>
+                                    <input class="form-input" type="text" id="cache-description">
+                                    <label for="cache-difficulty">Select the Difficulty</label>
+                                    <select class="form-select" aria-label="Difficulty Select" id="cache-difficulty">
+                                        <option selected>Select a Difficulty</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                        <option value="4">Four</option>
+                                        <option value="5">Five</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">Create new cache</button>
+                                </div>
+                            </form>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{!-- </footer> --}}
+
+{{!-- <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> --}}
+
+<!-- Modal -->
+{{!-- <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+                            <form class="form cache-form">
+                                <div class="form-group">
+                                    <label for="cache-name">Cache Name</label>
+                                    <input class="form-input" type="text" id="cache-name">
+                                    <label for="cache-hints">Hint</label>
+                                    <input class="form-input" type="text" id="cache-hints">
+                                    <label for="cache-description">Describe the Location</label>
+                                    <input class="form-input" type="text" id="cache-description">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Select a Difficulty</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                        <option value="4">Four</option>
+                                        <option value="5">Five</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">Login!</button>
+                                </div>
+                            </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> --}}
