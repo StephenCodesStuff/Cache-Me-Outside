@@ -11,6 +11,14 @@ FoundCaches.init(
             primaryKey: true,
             autoIncrement: true
         },
+        isFound:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        times_found:{
+            type: DataTypes.INTEGER,
+            defaultValue: 0
+        },
         cache_id:{
             type: DataTypes.INTEGER,
             references: {
@@ -26,14 +34,6 @@ FoundCaches.init(
             },
             defaultValue: null
         },
-        isFound:{
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
-        },
-        times_found:{
-            type: DataTypes.INTEGER,
-            defaultValue: 0
-        }
     },
     {
         sequelize,

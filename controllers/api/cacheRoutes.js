@@ -5,8 +5,11 @@ const withAuth = require('../../utils/auth')
 //GET all caches for testing purposes
 router.get('/', async (req, res) => {
   try {
-      const cacheData = await Caches.findAll(
-          {include: {model: User}}
+      const cacheData = await Caches.findAll({
+        include: {
+          model: User,
+          attributes: ['id', 'username']}
+          }
       );
 
       const caches = cacheData.map((caches) =>
