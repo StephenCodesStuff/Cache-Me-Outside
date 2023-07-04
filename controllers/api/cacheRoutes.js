@@ -40,7 +40,7 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const newCache = await Caches.create({
             ...req.body,
-            hider_id: req.session.hider_id,
+            hider_id: req.session.user_id,
           });
       
           res.status(200).json(newCache);
