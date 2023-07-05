@@ -1,6 +1,7 @@
 const User = require('./users');
 const Caches = require('./caches');
 const FoundCaches = require('./foundcaches');
+const TimesFound = require('./timesFound');
 
 //User can create/hide many caches
 User.hasMany(Caches, {
