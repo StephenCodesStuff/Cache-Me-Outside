@@ -17,6 +17,8 @@ const seedDatabase = async () => {
 
     const caches = await Caches.bulkCreate(cacheData);
 
+    //in order to have caches stored inside the found caches table, they must be found in (and the instance of "finding" recorded inside) the timesfound table
+
     
 
 
