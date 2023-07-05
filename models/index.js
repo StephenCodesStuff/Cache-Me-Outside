@@ -14,57 +14,46 @@ Caches.belongsTo(User, {
     // onDelete: 'CASCADE' if cache deleted, delete associated child rows
 });
 
-//rewriting using timesfound as my through table
-//Found caches can have many finders/many finders to many found caches
-User.belongsToMany(FoundCaches, {
-    through: {
-        model: TimesFound,
-        where: {finder_id: User.id},
-        unique: false
-    },
-    //alias name for users as finders
-    as: 'foundcaches',
-});
-
 FoundCaches.belongsTo(Caches, {
     foreignKey: 'cache_id'
     });
-
-// //foundcaches belongs to many finders, many finders can have many found caches, times found logs all "finding" instances
-FoundCaches.belongsToMany(User, {
-    through: {
-        model: TimesFound,
-        unique: false
-    },
-    //alias for caches found for sequelize
-    as: 'finders',
-});
-
-Caches.hasMany(FoundCaches, {
+//1:1 relationship between found caches and caches
+Caches.hasOne(FoundCaches, {
     foreignKey: 'cache_id'
+    });
+
+
+User.hasMany(TimesFound, {
+    foreignKey: 'finder_id'
+    });
+
+TimesFound.belongsTo(User, {
+    foreignKey: 'finder_id'
+    });
+
+FoundCaches.hasMany(TimesFound, {
+    foreignKey: 'found_cache_id'
+    });
+
+TimesFound.belongsTo(FoundCaches, {
+    foreignKey: 'found_cache_id'
+    });
+
+TimesFound.hasOne(FoundCaches, {
+    foreignKey: 'last_time_found_id'
     });
 
 FoundCaches.belongsTo(TimesFound, {
     foreignKey: 'last_time_found_id'
     });
 
-TimesFound.hasMany(FoundCaches, {
-    foreignKey: 'last_time_found_id'
+Caches.hasMany(TimesFound, {
+    foreignKey: 'cache_id'
     });
 
-
-// TimesFound.hasOne(FoundCaches, {
-//     foreignKey: 'last_time_found_id'
-//     });
-
-// TimesFound.belongsTo(User, {
-//     foreignKey: 'finder_id'
-//     });
-
-// //user can find many caches (Finder:many caches)
-// User.hasMany(FoundCaches, {
-//     foreignKey: 'finder_id'
-// });
+TimesFound.belongsTo(Caches, {
+    foreignKey: 'cache_id'
+    });
 
 // //one cache can be found many times (cache:many finders)
 // Caches.hasMany(FoundCaches, {
