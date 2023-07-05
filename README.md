@@ -45,6 +45,8 @@
   
   <img width="500" alt="image" src="https://github.com/StephenCodesStuff/Cache-Me-Outside/assets/122505441/bc298749-b072-4a94-89f9-eada2d7d8083">
 
+  Delete Cache will delete the user data.
+
   
   ## License
   MIT License
@@ -54,14 +56,20 @@
     
   ## Contributing
   Stephen Cook
+  
   Matt Chiaro
+  
   KT Eddy
 
   ## Technologies
   Mapbox GLJS - a mapping API
+  
   ChatGPT - generates seed data
+  
   WebGL
+  
   Bootstrap - Impact Template
+  
   NPM Packages - bcrypt, sequelize, dotenv, express, handlebars, mysql12
 
   
