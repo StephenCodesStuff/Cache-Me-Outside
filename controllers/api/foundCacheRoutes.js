@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const e = require('express');
 const { FoundCaches, User, Caches } = require('../../models');
 const withAuth = require('../../utils/auth')
 
