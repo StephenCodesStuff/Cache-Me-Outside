@@ -1,0 +1,82 @@
+[
+    {
+        "num_times_found": 1,
+        "cache_id": 1,
+        "finder_id": 1
+    },
+    {
+        "num_times_found": 1,
+        "cache_id": 2,
+        "finder_id": 2
+    },
+    {
+        "num_times_found": 1,
+        "cache_id": 3,
+        "finder_id": 3
+    },
+    {
+        "num_times_found": 1,
+        "cache_id": 4,
+        "finder_id": 1
+    },
+    {
+        "num_times_found": 1,
+        "cache_id": 5,
+        "finder_id": 2
+    },
+    {
+        "num_times_found": 1,
+        "cache_id": 6,
+        "finder_id": 3
+    },
+    {
+        "num_times_found": 1,
+        "cache_id": 7,
+        "finder_id": 1
+    },
+    {
+        "num_times_found": 2,
+        "cache_id": 1,
+        "finder_id": 2
+    },
+    {
+        "num_times_found": 2,
+        "cache_id": 2,
+        "finder_id": 3
+    },
+    {
+        "num_times_found": 2,
+        "cache_id": 3,
+        "finder_id": 1
+    },
+    {
+        "num_times_found": 2,
+        "cache_id": 4,
+        "finder_id": 2
+    },
+    {
+        "num_times_found": 2,
+        "cache_id": 5,
+        "finder_id": 3
+    },
+    {
+        "num_times_found": 3,
+        "cache_id": 1,
+        "finder_id": 3
+    },
+    {
+        "num_times_found": 3,
+        "cache_id": 2,
+        "finder_id": 1
+    },
+    {
+        "num_times_found": 4,
+        "cache_id": 2,
+        "finder_id": 2
+    },
+    {
+        "num_times_found": 5,
+        "cache_id": 2,
+        "finder_id": 3
+    }
+]

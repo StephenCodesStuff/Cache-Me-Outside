@@ -1,13 +1,15 @@
 const router = require('express').Router();
-const { log } = require('console');
-const { Caches, User } = require('../../models');
+const { Caches, User, TimesFound } = require('../../models');
 const withAuth = require('../../utils/auth')
 
 //GET all caches for testing purposes
 router.get('/', async (req, res) => {
   try {
-      const cacheData = await Caches.findAll(
-          {include: {model: User}}
+      const cacheData = await Caches.findAll({
+        include: {
+          model: User,
+          attributes: ['id', 'username']}
+          }
       );
 
       const caches = cacheData.map((caches) =>
@@ -89,5 +91,41 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
   });
 
+//get all times found for a specific cache
+router.get('/:id/timesfound', async (req, res) => {
+    try {
+      await TimesFound.findAndCountAll({
+          where: { cache_id: req.params.id }
+      }).then(result => {
+          console.log(result.count, "times found for cache #", req.params.id);
+          res.status(200).json(result.count, " times found for cache #", req.params.id);
+      });
+
+  } catch (err) {
+      console.log("u broke it u moron", err);
+      res.status(500).json(err);
+  }
+});
+
+//get all finders for a specific cache
+router.get('/:id/finders', async (req, res) => {
+    try {
+      const findersData = await TimesFound.findAll({
+          where: { cache_id: req.params.id },
+          include: {
+              model: User,
+              attributes: ['id', 'username']
+          }
+      });
+      const finders = findersData.map((finder) =>
+      finder.get({ plain: true })
+      );
+      console.log(finders, "finders for cache #", req.params.id);
+      res.status(200).json(finders);
+  } catch (err) {
+      console.log("u broke it u moron", err);
+      res.status(500).json(err);
+  }
+});
 
 module.exports = router;
