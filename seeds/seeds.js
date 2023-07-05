@@ -23,13 +23,13 @@ const seedDatabase = async () => {
     // };
 await Caches.bulkCreate(cacheData);
 
-    //foundcaches here
-    for (const foundCache of foundCacheData) {
-        await FoundCaches.create({
-            ...foundCache,
-            finder_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-};
+//     //foundcaches here
+//     for (const foundCache of foundCacheData) {
+//         await FoundCaches.create({
+//             ...foundCache,
+//             finder_id: users[Math.floor(Math.random() * users.length)].id,
+//     });
+// };
     process.exit(0);
 };
 
