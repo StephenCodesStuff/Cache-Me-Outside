@@ -39,7 +39,11 @@
 
   The New Cache form allows the user to give a title, hints, desciption and a difficulty to the new cache. The new cache uses location data from the broswer. 
   
-  <img width="1004" alt="image" src="https://github.com/StephenCodesStuff/Cache-Me-Outside/assets/122505441/1f57aa1b-f36f-4baf-9299-ae5d58175409">
+  <img width="500" alt="image" src="https://github.com/StephenCodesStuff/Cache-Me-Outside/assets/122505441/1f57aa1b-f36f-4baf-9299-ae5d58175409">
+
+  Profile displays all of the caches the user created
+  
+  <img width="500" alt="image" src="https://github.com/StephenCodesStuff/Cache-Me-Outside/assets/122505441/bc298749-b072-4a94-89f9-eada2d7d8083">
 
   
   ## License
