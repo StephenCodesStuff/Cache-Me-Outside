@@ -18,38 +18,20 @@ User.hasMany(FoundCaches, {
     foreignKey: 'finder_id'
 });
 
-//one cache can be found many times (cache:many finders)
-Caches.hasMany(FoundCaches, {
-    foreignKey: 'cache_id'
-});
-//testing if we can cheese this
-FoundCaches.belongsTo(User, {
-    foreignKey: 'finder_id'
-});
-
-FoundCaches.belongsTo(Caches, {
-    foreignKey: 'cache_id'
-});
-
-//i fuckiong cheesed it
-// //rewriting using foundcaches as my through table, under current set up hasmany only works if a found cache belongs to a single user and single cache. will not work with a doublejoin on model tables
-// User.belongsToMany(Caches, {
-//     through: {
-//         model: FoundCaches,
-//         unique: false
-//     },
-//     //alias name for users as finders
-//     as: 'found_caches',
+// //one cache can be found many times (cache:many finders)
+// Caches.hasMany(FoundCaches, {
+//     foreignKey: 'cache_id'
+// });
+// //testing if we can cheese this
+// FoundCaches.belongsTo(User, {
+//     foreignKey: 'finder_id'
 // });
 
-// //cache belongs to many users
-// Caches.belongsToMany(User, {
-//     through: {
-//         model: FoundCaches,
-//         unique: false
-//     },
-//     //alias for caches found for sequelize
-//     as: 'caches_found',
+// FoundCaches.belongsTo(Caches, {
+//     foreignKey: 'cache_id'
 // });
+
+// //i fuckiong cheesed it
+
 
 module.exports = { User, Caches, FoundCaches };
