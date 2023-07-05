@@ -8,29 +8,17 @@ const foundCacheData = require('./foundCacheData.json');
 const timesFoundData = require('./timesFoundData.json');
 
 const seedDatabase = async () => {
-    await sequelize.sync({force: true});
+    await sequelize.sync({ force: true });
 
-    const users = await User.bulkCreate( userData, {
+    await User.bulkCreate(userData, {
         individualHooks: true,
         returning: true
     });
 
-    // for (const cache of cacheData) {
-    //     await Caches.create({
-    //         ...cache,
-    //         hider_id: users[Math.floor(Math.random() * users.length)].id
-    //     });
-    // };
-await Caches.bulkCreate(cacheData);
-await TimesFound.bulkCreate(timesFoundData);
-await FoundCaches.bulkCreate(foundCacheData);
-//     //foundcaches here
-//     for (const foundCache of foundCacheData) {
-//         await FoundCaches.create({
-//             ...foundCache,
-//             finder_id: users[Math.floor(Math.random() * users.length)].id,
-//     });
-// };
+    await Caches.bulkCreate(cacheData);
+    await TimesFound.bulkCreate(timesFoundData);
+    await FoundCaches.bulkCreate(foundCacheData);
+
     process.exit(0);
 };
 
