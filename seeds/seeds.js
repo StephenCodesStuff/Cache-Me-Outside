@@ -22,7 +22,8 @@ const seedDatabase = async () => {
     //     });
     // };
 await Caches.bulkCreate(cacheData);
-
+await TimesFound.bulkCreate(timesFoundData);
+await FoundCaches.bulkCreate(foundCacheData);
 //     //foundcaches here
 //     for (const foundCache of foundCacheData) {
 //         await FoundCaches.create({
