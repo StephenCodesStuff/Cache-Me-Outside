@@ -44,7 +44,7 @@ router.get('/user/:id', async (req, res) => {
         const foundCacheData = await FoundCaches.findAll({
             where: { finder_id: req.params.id },
             include: [
-                { 
+                {
                     model: TimesFound,
                     attributes: ['id', 'num_times_found', 'finder_id', 'cache_id'],
                 },

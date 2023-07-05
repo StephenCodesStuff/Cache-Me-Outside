@@ -91,5 +91,20 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
   });
 
+//get all times found for a specific cache
+router.get('/:id/timesfound', async (req, res) => {
+    try {
+      await TimesFound.findAndCountAll({
+          where: { cache_id: req.params.id }
+      }).then(result => {
+          console.log(result.count, "times found for cache #", req.params.id);
+          res.status(200).json(result.count, " times found for cache #", req.params.id);
+      });
+
+  } catch (err) {
+      console.log("u broke it u moron", err);
+      res.status(500).json(err);
+  }
+});
 
 module.exports = router;
