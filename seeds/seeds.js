@@ -5,6 +5,7 @@ const { User, Caches, FoundCaches, TimesFound } = require('../models');
 const userData = require('./userData.json');
 const cacheData = require('./cacheData.json');
 const foundCacheData = require('./foundCacheData.json');
+const timesFoundData = require('./timesFoundData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({force: true});
