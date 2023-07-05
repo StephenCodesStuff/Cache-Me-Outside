@@ -14,25 +14,6 @@ Caches.belongsTo(User, {
     // onDelete: 'CASCADE' if cache deleted, delete associated child rows
 });
 
-//user can find many caches (Finder:many caches)
-User.hasMany(FoundCaches, {
-    foreignKey: 'finder_id'
-});
-
-// //one cache can be found many times (cache:many finders)
-// Caches.hasMany(FoundCaches, {
-//     foreignKey: 'cache_id'
-// });
-// //testing if we can cheese this
-// FoundCaches.belongsTo(User, {
-//     foreignKey: 'finder_id'
-// });
-
-// FoundCaches.belongsTo(Caches, {
-//     foreignKey: 'cache_id'
-// });
-
-// //i fuckiong cheesed it
 //rewriting using timesfound as my through table
 //Found caches can have many finders/many finders to many found caches
 User.belongsToMany(FoundCaches, {
@@ -54,4 +35,23 @@ FoundCaches.belongsToMany(User, {
     as: 'foundcaches_of_finders',
 });
 
+// //user can find many caches (Finder:many caches)
+// User.hasMany(FoundCaches, {
+//     foreignKey: 'finder_id'
+// });
+
+// //one cache can be found many times (cache:many finders)
+// Caches.hasMany(FoundCaches, {
+//     foreignKey: 'cache_id'
+// });
+// //testing if we can cheese this
+// FoundCaches.belongsTo(User, {
+//     foreignKey: 'finder_id'
+// });
+
+// FoundCaches.belongsTo(Caches, {
+//     foreignKey: 'cache_id'
+// });
+
+// //i fuckiong cheesed it
 module.exports = { User, Caches, FoundCaches, TimesFound };
