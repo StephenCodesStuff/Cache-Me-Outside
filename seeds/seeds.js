@@ -16,14 +16,14 @@ const seedDatabase = async () => {
     const caches = await Caches.bulkCreate(cacheData);
 
     //in order to have caches stored inside the found caches table, they must be found in (and the instance of "finding" recorded inside) the timesfound table
-    
+
     //declaring empty array for the all timesfound instance objects to be stored, essentially the .json file but dynamically created
     const timesFound = [];
     //creating a random number of timesfound instances
     timesFound.length = Math.floor(Math.random() * 30 + 1);
     console.log(timesFound.length);
     //for loop within that array length to create seed data
-    for(let i = 0; i < timesFound.length; i++) {
+    for (let i = 0; i < timesFound.length; i++) {
         timesFound[i] = await TimesFound.create({
             id: i + 1,
             //randomly assigning a user id to each instance
@@ -43,22 +43,30 @@ const seedDatabase = async () => {
 
     //since the times found table is randomized, we don't know how many times a cache has been found and therefore the length of the array
     //find all caches that have been found
-    for(const timeFound of timesFound) {
+    for (const timeFound of timesFound) {
         //if the cache has been found
-        if(timeFound.cache_id) {
+        if (timeFound.cache_id) {
             const foundCache = await FoundCaches.create({
                 //assign the cache id to the found cache
                 cache_id: timeFound.cache_id,
                 //assign the timesfound id to the found cache
                 last_time_found_id: timeFound.id
             });
-            //push the found cache to the found caches array
-            foundCaches.push(foundCache);
+            //check if the found cache is already in the found caches array
+            if (!foundCaches.includes(foundCache.cache_id)) {
+                 //if it isn't, push the found cache to the found caches array
+                foundCaches.push(foundCache);
+            } else {
+                //if it is, delete it and push the new one
+                foundCaches.splice(foundCaches.indexOf(foundCache.cache_id), 1);
+                foundCaches.push(foundCache);
+            }
             console.log(foundCache, 'one found cache stored');
+        }
+        console.log(foundCaches, 'found caches stored, u done did it dummy');
     }
-    console.log(foundCaches, 'found caches stored, u done did it dummy');
-    }
-    
+
+    //
 
 
 
@@ -89,27 +97,27 @@ const seedDatabase = async () => {
 
 
 
-//    for(const timeFound of timesFoundData) {
-//         let id = Math.floor(Math.random() * 15);
-//         if(!timeFound.found_cache_id) {
-//             let foundCache = await FoundCaches.findByPk(timeFound.cache_id);
+    //    for(const timeFound of timesFoundData) {
+    //         let id = Math.floor(Math.random() * 15);
+    //         if(!timeFound.found_cache_id) {
+    //             let foundCache = await FoundCaches.findByPk(timeFound.cache_id);
 
-//             await TimesFound.update(
-//                 {
-//                     found_cache_id: foundCache.id
-//                 },
-//                 {
-//                     where: {
-//                         id: id
-//                     }
-//                 }
-//             );
-//             console.log(timeFound, foundCache, "u done it");
+    //             await TimesFound.update(
+    //                 {
+    //                     found_cache_id: foundCache.id
+    //                 },
+    //                 {
+    //                     where: {
+    //                         id: id
+    //                     }
+    //                 }
+    //             );
+    //             console.log(timeFound, foundCache, "u done it");
 
-//         } else {
-//             console.log("u done goofed");
-//         }
-//     }
+    //         } else {
+    //             console.log("u done goofed");
+    //         }
+    //     }
 
 
 
