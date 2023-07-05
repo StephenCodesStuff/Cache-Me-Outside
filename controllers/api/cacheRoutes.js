@@ -37,6 +37,22 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+//get all caches by User ID
+
+router.get('/user/id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [{model: Caches }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+    
 
 //CREATE new cache
 router.post('/', withAuth, async (req, res) => {

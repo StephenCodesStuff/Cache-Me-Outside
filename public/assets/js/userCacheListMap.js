@@ -10,14 +10,14 @@ const map = new mapboxgl.Map({
 
 const displayMaps = () => {
 
-    fetch('/api/cache')
+    fetch('/api/cache/user/id')
         .then(function (response) {
-            return response.json();        
+            return response.json();
         })
         .then(function (data) {
             for (let i = 0; i < data.length; i++) {
                 const marker = new mapboxgl.Marker()
-                    .setLngLat([data[i].lon, data[i].lat])
+                    .setLngLat([data.caches[i].lon, data.caches[i].lat])
                     .addTo(map);
             }
             return map;
