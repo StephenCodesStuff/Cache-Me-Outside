@@ -4,21 +4,49 @@ const { User, Caches, FoundCaches, TimesFound } = require('../models');
 //import seed data for users, caches, found caches
 const userData = require('./userData.json');
 const cacheData = require('./cacheData.json');
-const foundCacheData = require('./foundCacheData.json');
-const timesFoundData = require('./timesFoundData.json');
+// const foundCacheData = require('./foundCacheData.json');
+// const timesFoundData = require('./timesFoundData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
-    await User.bulkCreate(userData, {
+    const users = await User.bulkCreate(userData, {
         individualHooks: true,
         returning: true
     });
 
-    await Caches.bulkCreate(cacheData);
+    const caches = await Caches.bulkCreate(cacheData);
+
     
-    await TimesFound.bulkCreate(timesFoundData);
-    await FoundCaches.bulkCreate(foundCacheData);
+
+
+
+
+    // let foundCaches = [];
+    // for (const foundCache of caches){
+    //     await FoundCaches.create({
+    //         ...foundCache,
+    //         cache_id: caches[Math.floor(Math.random() * caches.length)].id
+    //     });
+    //     console.log(foundCache);
+    //     foundCaches.push(foundCache);
+    // }
+    // const foundSeed = foundCaches.map((foundCache) => foundCache.get({ plain: true }));
+    // console.log(foundSeed);
+
+
+
+    // await TimesFound.bulkCreate(timesFoundData);
+    // for(const timeFound of timesFoundData) {
+    //     await TimesFound.create({
+    //         ...timeFound,
+    //         finder_id: users[Math.floor(Math.random() * users.length)].id,
+    //         cache_id: caches[Math.floor(Math.random() * caches.length)].id
+    //     });
+
+    // await FoundCaches.bulkCreate(foundCacheData);
+
+
 
 //    for(const timeFound of timesFoundData) {
 //         let id = Math.floor(Math.random() * 15);
