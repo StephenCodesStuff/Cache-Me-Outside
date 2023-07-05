@@ -33,6 +33,25 @@ User.hasMany(FoundCaches, {
 // });
 
 // //i fuckiong cheesed it
+//rewriting using timesfound as my through table
+//Found caches can have many finders/many finders to many found caches
+User.belongsToMany(FoundCaches, {
+    through: {
+        model: TimesFound,
+        unique: false
+    },
+    //alias name for users as finders
+    as: 'finders_of_foundcaches',
+});
 
+//foundcaches belongs to many finders, many finders can have many found caches, times found logs all "finding" instances
+FoundCaches.belongsToMany(User, {
+    through: {
+        model: TimesFound,
+        unique: false
+    },
+    //alias for caches found for sequelize
+    as: 'foundcaches_of_finders',
+});
 
-module.exports = { User, Caches, FoundCaches };
+module.exports = { User, Caches, FoundCaches, TimesFound };
