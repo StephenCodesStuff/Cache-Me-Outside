@@ -8,13 +8,10 @@ router.get('/', async (req, res) => {
         const foundCacheData = await FoundCaches.findAll({
             include: [
                 {
-                    model: User,
-                    attributes: ['id', 'username']
-                },
-                {
                     model: Caches,
                     attributes: ['id', 'name', 'description', 'lat', 'lon', 'hider_id'],
-                }]
+                }
+            ]
         }
         );
 
