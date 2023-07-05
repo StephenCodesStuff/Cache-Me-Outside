@@ -16,7 +16,7 @@
   
   * [Contributing](#contributing)
   
-  * [Tests](#tests)
+  * [Technologies](#technologies)
   
   * [Questions](#questions)
   
@@ -47,19 +47,23 @@
 
   
   ## License
-
+  MIT License
 
   
   
     
   ## Contributing
   Stephen Cook
-  
-  
-  ## Tests
-  
+  Matt Chiaro
+  KT Eddy
 
-  
+  ## Technologies
+  Mapbox GLJS - a mapping API
+  ChatGPT - generates seed data
+  WebGL
+  Bootstrap - Impact Template
+  NPM Packages - bcrypt, sequelize, dotenv, express, handlebars, mysql12
+
   
   ## Questions
   
