@@ -11,13 +11,17 @@ FoundCaches.init(
             primaryKey: true,
             autoIncrement: true
         },
-        isFound:{
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
-        },
-        times_found:{
+        // isFound:{
+        //     type: DataTypes.BOOLEAN,
+        //     defaultValue: false
+        // },
+        last_time_found_id:{
             type: DataTypes.INTEGER,
-            defaultValue: 0
+            allowNull: false,
+            references: {
+                model: 'timesfound',
+                key: 'id'
+            },
         },
         cache_id:{
             type: DataTypes.INTEGER,
@@ -26,14 +30,14 @@ FoundCaches.init(
                 key: 'id'
             },
         },
-        finder_id:{
-            type: DataTypes.INTEGER,
-            references:{
-                model: 'user',
-                key: 'id'
-            },
-            defaultValue: null
-        },
+        // finder_id:{
+        //     type: DataTypes.INTEGER,
+        //     references:{
+        //         model: 'user',
+        //         key: 'id'
+        //     },
+        //     defaultValue: null
+        // },
     },
     {
         sequelize,
