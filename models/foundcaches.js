@@ -17,7 +17,8 @@ FoundCaches.init(
         // },
         last_time_found_id:{
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
+            defaultValue:1,
             references: {
                 model: 'timesfound',
                 key: 'id'

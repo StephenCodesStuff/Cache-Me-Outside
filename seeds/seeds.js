@@ -16,29 +16,31 @@ const seedDatabase = async () => {
     });
 
     await Caches.bulkCreate(cacheData);
+    
     await TimesFound.bulkCreate(timesFoundData);
     await FoundCaches.bulkCreate(foundCacheData);
 
-    // for(const timeFound of timesFoundData) {
-    //     if(!timeFound.found_cache_id) {
-    //         let foundCache = await FoundCaches.findByPk(timeFound.cache_id);
+//    for(const timeFound of timesFoundData) {
+//         let id = Math.floor(Math.random() * 15);
+//         if(!timeFound.found_cache_id) {
+//             let foundCache = await FoundCaches.findByPk(timeFound.cache_id);
 
-    //         await TimesFound.update(
-    //             {
-    //                 found_cache_id: foundCache.id
-    //             },
-    //             {
-    //                 where: {
-    //                     found_cache_id: null
-    //                 }
-    //             }
-    //         );
-    //         console.log(timeFound, foundCache, "u done it");
+//             await TimesFound.update(
+//                 {
+//                     found_cache_id: foundCache.id
+//                 },
+//                 {
+//                     where: {
+//                         id: id
+//                     }
+//                 }
+//             );
+//             console.log(timeFound, foundCache, "u done it");
 
-    //     } else {
-    //         console.log("u done goofed");
-    //     }
-    // }
+//         } else {
+//             console.log("u done goofed");
+//         }
+//     }
 
 
 

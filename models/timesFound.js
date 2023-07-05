@@ -28,6 +28,7 @@ TimesFound.init(
                 model: 'user',
                 key: 'id'
             },
+            unique: false
         },
         cache_id: {
             type: DataTypes.INTEGER,
@@ -42,6 +43,7 @@ TimesFound.init(
                 model: 'foundCaches',
                 key: 'id'
             },
+            unique: false
         },
     },
     {

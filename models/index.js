@@ -42,22 +42,25 @@ FoundCaches.belongsToMany(User, {
 
 User.belongsToMany(FoundCaches, {
     through: TimesFound,
-    foreignKey: 'finder_id'
+    foreignKey: 'finder_id',
+    unique: false
     });
 
 //Found caches can be found many times
 FoundCaches.hasMany(TimesFound, {
-    foreignKey: 'found_cache_id'
-
+    foreignKey: 'found_cache_id',
+    constraints: false,
+unique: false
     });
 
 TimesFound.belongsTo(FoundCaches, {
     foreignKey: 'found_cache_id',
-    unique: false
+    unique: false,
+    constraints: false
     });
 
 //TimesFound can only be associated with one found cache entry
-TimesFound.hasOne(FoundCaches, {
+TimesFound.hasMany(FoundCaches, {
     foreignKey: 'last_time_found_id'
     });
 
