@@ -19,21 +19,47 @@ Caches.belongsTo(User, {
 User.belongsToMany(FoundCaches, {
     through: {
         model: TimesFound,
+        where: {finder_id: User.id},
         unique: false
     },
     //alias name for users as finders
-    as: 'finders_of_foundcaches',
+    as: 'foundcaches',
 });
 
-//foundcaches belongs to many finders, many finders can have many found caches, times found logs all "finding" instances
+FoundCaches.belongsTo(Caches, {
+    foreignKey: 'cache_id'
+    });
+
+// //foundcaches belongs to many finders, many finders can have many found caches, times found logs all "finding" instances
 FoundCaches.belongsToMany(User, {
     through: {
         model: TimesFound,
         unique: false
     },
     //alias for caches found for sequelize
-    as: 'foundcaches_of_finders',
+    as: 'finders',
 });
+
+Caches.hasMany(FoundCaches, {
+    foreignKey: 'cache_id'
+    });
+
+FoundCaches.belongsTo(TimesFound, {
+    foreignKey: 'last_time_found_id'
+    });
+
+TimesFound.hasMany(FoundCaches, {
+    foreignKey: 'last_time_found_id'
+    });
+
+
+// TimesFound.hasOne(FoundCaches, {
+//     foreignKey: 'last_time_found_id'
+//     });
+
+// TimesFound.belongsTo(User, {
+//     foreignKey: 'finder_id'
+//     });
 
 // //user can find many caches (Finder:many caches)
 // User.hasMany(FoundCaches, {

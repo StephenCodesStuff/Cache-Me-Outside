@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { FoundCaches, User, Caches } = require('../../models');
+const { FoundCaches, User, Caches, TimesFound } = require('../../models');
 const withAuth = require('../../utils/auth')
 
 //GET all found caches for test in insomnia
@@ -10,6 +10,10 @@ router.get('/', async (req, res) => {
                 {
                     model: Caches,
                     attributes: ['id', 'name', 'description', 'lat', 'lon', 'hider_id'],
+                },
+                {
+                    model: TimesFound,
+                    attributes: ['id', 'num_times_found', 'finder_id', 'foundcache_id'],
                 }
             ]
         }
@@ -34,7 +38,8 @@ router.get('/user/:id', async (req, res) => {
             include: [
                 { 
                     model: User,
-                    attributes: ['id', 'username']
+                    through: TimesFound,
+                    as: 'finders',
                 },
                 {
                     model: Caches,
