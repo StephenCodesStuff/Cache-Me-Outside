@@ -12,7 +12,6 @@ const displayMaps = () => {
 
     fetch('/api/cache')
         .then(function (response) {
-            console.log(response.json())
             return response.json();
         })
         .then(function (data) {
