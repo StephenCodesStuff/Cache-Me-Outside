@@ -35,7 +35,21 @@ const seedDatabase = async () => {
     }
     //mapping the timesfound array to extract data
     const timesFoundSeed = timesFound.map((timefind) => timefind.get({ plain: true }));
-    console.log(timesFoundSeed);
+    console.log(timesFoundSeed, 'u finally did it');
+
+    //now that we have all 'logged' instances of caches being found, we can create the found caches table
+    //declaring empty array for foundcaches to store all caches that have been found
+    const foundCaches = [];
+
+    //since the times found table is randomized, we don't know how many times a cache has been found and therefore the length of the array
+    //find all caches that have been found
+    for(const timeFound of timesFound) {
+        //if the cache has been found, push it to the foundCaches array
+        if(timeFound.cache_id) {
+            foundCaches.push(timeFound.cache_id);
+        }
+        console.log(foundCaches, 'found cache ids');
+    }
 
 
 
