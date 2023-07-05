@@ -6,6 +6,8 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
+    const messages = req.flash('error');
+    console.log(messages)
     const cacheData = await Caches.findAll(
       { include: { model: User } }
     );
@@ -16,7 +18,8 @@ router.get('/', async (req, res) => {
     // res.status(200).json(caches);
     res.render('homepage', { 
       caches, 
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
+      messages
     });
   } catch (err) {
     console.log(err);
