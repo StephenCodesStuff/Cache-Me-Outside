@@ -44,12 +44,21 @@ const seedDatabase = async () => {
     //since the times found table is randomized, we don't know how many times a cache has been found and therefore the length of the array
     //find all caches that have been found
     for(const timeFound of timesFound) {
-        //if the cache has been found, push it to the foundCaches array
+        //if the cache has been found
         if(timeFound.cache_id) {
-            foundCaches.push(timeFound.cache_id);
-        }
-        console.log(foundCaches, 'found cache ids');
+            const foundCache = await FoundCaches.create({
+                //assign the cache id to the found cache
+                cache_id: timeFound.cache_id,
+                //assign the timesfound id to the found cache
+                last_time_found_id: timeFound.id
+            });
+            //push the found cache to the found caches array
+            foundCaches.push(foundCache);
+            console.log(foundCache, 'one found cache stored');
     }
+    console.log(foundCaches, 'found caches stored, u done did it dummy');
+    }
+    
 
 
 
