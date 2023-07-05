@@ -7,13 +7,21 @@ router.get('/', async (req, res) => {
     try {
         const foundCacheData = await FoundCaches.findAll({
             include: [
-                {
+                {//nested super join works
                     model: Caches,
                     attributes: ['id', 'name', 'description', 'lat', 'lon', 'hider_id'],
+                    include: {
+                        model: User,
+                        attributes: ['id', 'username']
+                    }
                 },
-                {
+                {//nested super join still working
                     model: TimesFound,
                     attributes: ['id', 'num_times_found', 'finder_id', 'cache_id'],
+                    include: {
+                        model: User,
+                        attributes: ['id', 'username']
+                    }
                 }
             ]
         }

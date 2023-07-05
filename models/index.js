@@ -14,15 +14,17 @@ Caches.belongsTo(User, {
     // onDelete: 'CASCADE' if cache deleted, delete associated child rows
 });
 
+//1:1 relationship between found caches and caches
 FoundCaches.belongsTo(Caches, {
     foreignKey: 'cache_id'
     });
-//1:1 relationship between found caches and caches
+
 Caches.hasOne(FoundCaches, {
     foreignKey: 'cache_id'
     });
 
 
+//users as finders to timesfound
 User.hasMany(TimesFound, {
     foreignKey: 'finder_id'
     });
@@ -31,6 +33,18 @@ TimesFound.belongsTo(User, {
     foreignKey: 'finder_id'
     });
 
+//many found caches : many users
+FoundCaches.belongsToMany(User, {
+    through: TimesFound,
+    foreignKey: 'found_cache_id'
+    });
+
+User.belongsToMany(FoundCaches, {
+    through: TimesFound,
+    foreignKey: 'finder_id'
+    });
+
+//Found caches can be found many times
 FoundCaches.hasMany(TimesFound, {
     foreignKey: 'found_cache_id'
     });
@@ -39,6 +53,7 @@ TimesFound.belongsTo(FoundCaches, {
     foreignKey: 'found_cache_id'
     });
 
+//TimesFound can only be associated with one found cache entry
 TimesFound.hasOne(FoundCaches, {
     foreignKey: 'last_time_found_id'
     });
@@ -47,6 +62,8 @@ FoundCaches.belongsTo(TimesFound, {
     foreignKey: 'last_time_found_id'
     });
 
+
+//Caches can be found many times
 Caches.hasMany(TimesFound, {
     foreignKey: 'cache_id'
     });

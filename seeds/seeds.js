@@ -16,7 +16,23 @@ const seedDatabase = async () => {
     });
 
     await Caches.bulkCreate(cacheData);
-    await TimesFound.bulkCreate(timesFoundData);
+
+
+    for(const timeFound of timesFoundData) {
+        if(!timeFound.found_cache_id) {
+            let foundCache = await FoundCaches.findByPk(timeFound.cache_id);
+            await TimesFound.create({
+                ...timeFound,
+                found_cache_id: foundCache.id
+            });
+            
+            console.log(timeFound, foundCache, "u done it");
+
+        } else {
+            console.log("u done goofed");
+        }
+    }
+
     await FoundCaches.bulkCreate(foundCacheData);
 
     process.exit(0);
