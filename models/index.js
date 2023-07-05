@@ -36,7 +36,8 @@ TimesFound.belongsTo(User, {
 //many found caches : many users
 FoundCaches.belongsToMany(User, {
     through: TimesFound,
-    foreignKey: 'found_cache_id'
+    foreignKey: 'found_cache_id',
+    unique: false
     });
 
 User.belongsToMany(FoundCaches, {
@@ -47,10 +48,12 @@ User.belongsToMany(FoundCaches, {
 //Found caches can be found many times
 FoundCaches.hasMany(TimesFound, {
     foreignKey: 'found_cache_id'
+
     });
 
 TimesFound.belongsTo(FoundCaches, {
-    foreignKey: 'found_cache_id'
+    foreignKey: 'found_cache_id',
+    unique: false
     });
 
 //TimesFound can only be associated with one found cache entry

@@ -16,7 +16,8 @@ const seedDatabase = async () => {
     });
 
     await Caches.bulkCreate(cacheData);
-
+    await TimesFound.bulkCreate(timesFoundData);
+    await FoundCaches.bulkCreate(foundCacheData);
 
     for(const timeFound of timesFoundData) {
         if(!timeFound.found_cache_id) {
@@ -33,7 +34,7 @@ const seedDatabase = async () => {
         }
     }
 
-    await FoundCaches.bulkCreate(foundCacheData);
+
 
     process.exit(0);
 };
