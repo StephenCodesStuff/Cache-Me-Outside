@@ -15,7 +15,7 @@ const displayMaps = () => {
             return response.json();
         })
         .then(function (data) {
-            for (let i = 0; i < data.length; i++) {
+            for (let i = 0; i < data.caches.length; i++) {
                 const marker = new mapboxgl.Marker()
                     .setLngLat([data.caches[i].lon, data.caches[i].lat])
                     .addTo(map);
