@@ -6,8 +6,6 @@ const lon = document.getElementById('lon').textContent;
 
 
 const displayMap = () => {
-    console.log(lat, lon)
-
          const map = new mapboxgl.Map({
                 container: 'selected-map',
                 style: 'mapbox://styles/mapbox/streets-v11',
