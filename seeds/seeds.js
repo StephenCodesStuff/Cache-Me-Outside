@@ -44,33 +44,67 @@ const seedDatabase = async () => {
     //since the times found table is randomized, we don't know how many times a cache has been found and therefore the length of the array
     //find all caches that have been found
     for (const timeFound of timesFound) {
-        //if the cache has been found
-        if (timeFound.cache_id) {
-            //create a found cache entry in the found caches table
-            const foundCache = await FoundCaches.create({
+        //find all instances of a cache being found
+        const foundCacheData = await TimesFound.findAll({
+            where: {
+                cache_id: timeFound.cache_id
+            }
+        });
+        //if there are no duplicates, create new found cache entry
+        if (foundCacheData.length < 1) {
+            console.log('NO DUPLICATES');
+           const foundCache = await FoundCaches.create({
                 //assign the cache id to the found cache
                 cache_id: timeFound.cache_id,
                 //assign the timesfound id to the found cache
                 last_time_found_id: timeFound.id
             });
-
-            //check against the found caches array to see if it's already found
-            foundCaches.forEach(e => {
-                //if it is, delete it and push the new one
-                if (e.cache_id === timeFound.cache_id) {
-                    console.log('ALREADY IN ARRAY NUMNUTS');
-                    foundCaches.splice(foundCaches.indexOf(e.cache_id), 1);
-                    foundCaches.push(foundCache);
-                } else {
-                    //if it isn't, push the found cache to the found caches array
-                    foundCaches.push(foundCache);
-                    console.log('NEW FOUND CACHE STORED');
+            //push the found cache to the found caches array
+            foundCaches.push(foundCache);
+        } else {
+            console.log('DUPLICATES');
+            //if there are duplicates, destroy all found cache entries with the same cache id
+            await FoundCaches.destroy({
+                where: {
+                    cache_id: timeFound.cache_id
                 }
             });
+            //creating fresh entry in found caches table
+            const foundCache = await FoundCaches.create({
+                cache_id: timeFound.cache_id,
+                last_time_found_id: timeFound.id
+            });
+            foundCaches.push(foundCache);
         }
-    }
-    // console.log(foundCaches, 'found caches stored, u done did it dummy');
-    //
+    
+    console.log(foundCaches, 'found caches stored, u done did it dummy');
+};
+
+
+        //     //create a found cache entry in the found caches table
+        //     const foundCache = await FoundCaches.create({
+        //         //assign the cache id to the found cache
+        //         cache_id: timeFound.cache_id,
+        //         //assign the timesfound id to the found cache
+        //         last_time_found_id: timeFound.id
+        //     });
+
+        //     //check against the found caches array to see if it's already found
+        //     foundCaches.forEach(e => {
+        //         //if it is, delete it and push the new one
+        //         if (e.cache_id === timeFound.cache_id) {
+        //             console.log('ALREADY IN ARRAY NUMNUTS');
+        //             foundCaches.splice(foundCaches.indexOf(e.cache_id), 1);
+        //             foundCaches.push(foundCache);
+        //         } else {
+        //             //if it isn't, push the found cache to the found caches array
+        //             foundCaches.push(foundCache);
+        //             console.log('NEW FOUND CACHE STORED');
+        //         }
+        //     });
+        // }
+    
+
 
 
 
