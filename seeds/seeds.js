@@ -77,87 +77,24 @@ const seedDatabase = async () => {
             foundCaches.push(foundCache);
         }
     
-    console.log(foundCaches, 'found caches stored, u done did it dummy');
-};
-
-
-        //     //create a found cache entry in the found caches table
-        //     const foundCache = await FoundCaches.create({
-        //         //assign the cache id to the found cache
-        //         cache_id: timeFound.cache_id,
-        //         //assign the timesfound id to the found cache
-        //         last_time_found_id: timeFound.id
-        //     });
-
-        //     //check against the found caches array to see if it's already found
-        //     foundCaches.forEach(e => {
-        //         //if it is, delete it and push the new one
-        //         if (e.cache_id === timeFound.cache_id) {
-        //             console.log('ALREADY IN ARRAY NUMNUTS');
-        //             foundCaches.splice(foundCaches.indexOf(e.cache_id), 1);
-        //             foundCaches.push(foundCache);
-        //         } else {
-        //             //if it isn't, push the found cache to the found caches array
-        //             foundCaches.push(foundCache);
-        //             console.log('NEW FOUND CACHE STORED');
-        //         }
-        //     });
-        // }
+    console.log('found caches stored, u done did it dummy');
+    }
+    //updating the ids of found caches to increment properly (since they are primary keys)
+    for (let i = 0; i < foundCaches.length; i++) {
+        await FoundCaches.update({
+            id: i + 1
+        },
+            {
+                where: {
+                    id: foundCaches[i].id
+                }
+            });
+    }
+    console.log('updated id for found caches', foundCaches);
+    //mapping the found caches array to extract data
+    const foundCachesSeed = foundCaches.map((foundCache) => foundCache.get({ plain: true }));
     
-
-
-
-
-
-    // let foundCaches = [];
-    // for (const foundCache of caches){
-    //     await FoundCaches.create({
-    //         ...foundCache,
-    //         cache_id: caches[Math.floor(Math.random() * caches.length)].id
-    //     });
-    //     console.log(foundCache);
-    //     foundCaches.push(foundCache);
-    // }
-    // const foundSeed = foundCaches.map((foundCache) => foundCache.get({ plain: true }));
-    // console.log(foundSeed);
-
-
-
-    // await TimesFound.bulkCreate(timesFoundData);
-    // for(const timeFound of timesFoundData) {
-    //     await TimesFound.create({
-    //         ...timeFound,
-    //         finder_id: users[Math.floor(Math.random() * users.length)].id,
-    //         cache_id: caches[Math.floor(Math.random() * caches.length)].id
-    //     });
-
-    // await FoundCaches.bulkCreate(foundCacheData);
-
-
-
-    //    for(const timeFound of timesFoundData) {
-    //         let id = Math.floor(Math.random() * 15);
-    //         if(!timeFound.found_cache_id) {
-    //             let foundCache = await FoundCaches.findByPk(timeFound.cache_id);
-
-    //             await TimesFound.update(
-    //                 {
-    //                     found_cache_id: foundCache.id
-    //                 },
-    //                 {
-    //                     where: {
-    //                         id: id
-    //                     }
-    //                 }
-    //             );
-    //             console.log(timeFound, foundCache, "u done it");
-
-    //         } else {
-    //             console.log("u done goofed");
-    //         }
-    //     }
-
-
+    console.log(foundCachesSeed, 'u finally did it');
 
     process.exit(0);
 };
