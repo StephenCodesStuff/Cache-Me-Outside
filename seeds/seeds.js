@@ -46,28 +46,30 @@ const seedDatabase = async () => {
     for (const timeFound of timesFound) {
         //if the cache has been found
         if (timeFound.cache_id) {
+            //create a found cache entry in the found caches table
             const foundCache = await FoundCaches.create({
                 //assign the cache id to the found cache
                 cache_id: timeFound.cache_id,
                 //assign the timesfound id to the found cache
                 last_time_found_id: timeFound.id
             });
-            //check if the found cache is already in the found caches array
-            if (foundCaches.includes(foundCache.dataValues.cache_id)) {
-               console.log('already in array');
-                //  //if it isn't, push the found cache to the found caches array
-                // foundCaches.push(foundCache);
-            } else {
-            //     //if it is, delete it and push the new one
-            //     foundCaches.splice(foundCaches.indexOf(foundCache.cache_id), 1);
-                foundCaches.push(foundCache);
-                console.log('new found cache stored');
-            }
-            // console.log(foundCache, 'one found cache stored');
-        }
-        console.log(foundCaches, 'found caches stored, u done did it dummy');
-    }
 
+            //check against the found caches array to see if it's already found
+            foundCaches.forEach(e => {
+                //if it is, delete it and push the new one
+                if (e.cache_id === timeFound.cache_id) {
+                    console.log('ALREADY IN ARRAY NUMNUTS');
+                    foundCaches.splice(foundCaches.indexOf(e.cache_id), 1);
+                    foundCaches.push(foundCache);
+                } else {
+                    //if it isn't, push the found cache to the found caches array
+                    foundCaches.push(foundCache);
+                    console.log('NEW FOUND CACHE STORED');
+                }
+            });
+        }
+    }
+    // console.log(foundCaches, 'found caches stored, u done did it dummy');
     //
 
 
