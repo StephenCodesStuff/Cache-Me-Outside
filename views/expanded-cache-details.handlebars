@@ -36,6 +36,9 @@
             <li><strong>Difficulty: </strong>{{cache.difficulty}}</li>
             <li><strong>Hidden By: </strong>{{cache.user.username}}</li>
             <li><strong>Times Found: </strong>{{timesFound}}</li>
+            <li><strong>Found By: </strong></li>
+            {{#each finders}}
+            <li> {{user.username}} </li>{{/each}}
           </ul>
         </div>
       </div>

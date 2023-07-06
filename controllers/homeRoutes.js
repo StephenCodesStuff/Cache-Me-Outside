@@ -80,15 +80,28 @@ router.get('/cache/:id', async (req, res) => {
     });
 
     const cache = cacheData.get({ plain: true });
-
+//times found data for specific cache
     const timesFoundData = await TimesFound.findAndCountAll({
       where: { cache_id: req.params.id }
     });
     const timesFound = timesFoundData.count;
+    //finders
+    const findersData = await TimesFound.findAll({
+      where: { cache_id: req.params.id },
+      include: {
+        model: User,
+        attributes: ['id', 'username']
+      }
+    });
+    const finders = findersData.map((finder) =>
+      finder.get({ plain: true })
+    );
+
     // res.status(200).json(cache);
     res.render('expanded-cache-details', { 
       cache,
-      timesFound, 
+      timesFound,
+      finders, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
