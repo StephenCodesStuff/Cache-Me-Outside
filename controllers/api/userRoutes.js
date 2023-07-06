@@ -66,6 +66,9 @@ router.get('/profile', async (req, res) => {
       include: [
         {
         model: TimesFound,
+          include: {
+            model: Caches,
+          },
         },
         {
           model: Caches,
