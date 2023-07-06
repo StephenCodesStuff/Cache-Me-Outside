@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Caches } = require('../models');
+const { User, Caches, TimesFound } = require('../models');
 const withAuth = require('../utils/auth');
 
 //GET all caches
@@ -53,7 +53,8 @@ router.get('/new-cache', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Caches }],
+      include: [{ model: Caches },
+      {model: TimesFound}],
     });
 
     const user = userData.get({ plain: true });
