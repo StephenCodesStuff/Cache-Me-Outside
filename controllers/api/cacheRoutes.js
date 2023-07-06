@@ -128,18 +128,33 @@ router.put('/:id', withAuth, async (req, res) => {
 //DELETE cache
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const cacheData = await Caches.destroy({
+
+    //getting specific cache if user is hider
+    const cacheData = await Caches.findByPk(req.params.id, {
       where: {
-        id: req.params.id,
         hider_id: req.session.user_id,
-      },
-    });
-    if (!cacheData) {
-      res.status(404).json({ message: 'No cache found with this id, u idiot!' });
-      return;
-    }
-    console.log(`u deleted cache ${req.params.id} doofus`);
-    res.status(200).json(cacheData);
+        }
+        });
+
+        if(cacheData){
+          await Caches.destroy({
+            where: {
+              id: req.params.id,
+              hider_id: req.session.user_id,
+            },
+          });
+          console.log(`u deleted cache ${req.params.id} doofus`);
+          res.status(200).json({ message: `u deleted cache ${req.params.id} doofus` });
+
+        } else {
+          const cache = Caches.findByPk(req.params.id);
+
+          if(cache){ 
+            res.status(404).json({ message: 'You can only delete your own caches, u dummy!' });
+          } else {
+            res.status(404).json({ message: 'No cache found with this id, u idiot!' });
+          }
+        }
   } catch (err) {
     res.status(500).json(err);
     console.log('u broke it u moron', err);
