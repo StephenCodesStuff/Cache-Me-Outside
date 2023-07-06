@@ -33,29 +33,16 @@
   password: bootcamp
   ```
 
-  The homepage opens allowing user to see a brief how to play and an easy to see map of the hidden caches in their area.
-  
-  <img width="500" alt="image" src="https://github.com/StephenCodesStuff/Cache-Me-Outside/assets/122505441/1809d588-fa5c-4b59-bb69-4ba1f88701e3">
+Upon visiting the site, you will find a brief introduction to the application and a synopsis of how to play. When you scroll down, you will see an interactive map of all caches currently stored in the database. Clicking on the body of one of these tiles will zoom the map to the hidden location, and clicking on 'more details' will bring you to a page with an expanded view and more details. 
 
-  In the upper right we have a login feature which allows the user to login or create a new account. 
+![homepage](./public/assets/img/readme-images/cache-me-outside-homepage.gif)
+![expanded details page](./public/assets/img/readme-images/expanded-details-page.gif)
 
-  <img width="500" alt="image" src="https://github.com/StephenCodesStuff/Cache-Me-Outside/assets/122505441/d54b0dbf-bf53-4eb3-8acb-91a5830aff8f">
+By clicking login, you are prompted to either log in with existing credentials or create a new account. Once logged in, you can access your profile page, which will display all of the caches you have created. You can also create a new cache by clicking the 'create cache' button or delete an existing cache by clicking the 'delete cache' button.
 
-  Upon logging in the user will be able to create new caches or view their deployed caches using the profile tab.
+![profile page](./public/assets/img/readme-images/profile-page-demo.gif)
 
-  ![image](https://github.com/StephenCodesStuff/Cache-Me-Outside/assets/122505441/76301612-b6cf-4c2f-9e05-4893e3da361c)
 
-  The New Cache form allows the user to give a title, hints, desciption and a difficulty to the new cache. The new cache uses location data from the broswer. 
-  
-  <img width="500" alt="image" src="https://github.com/StephenCodesStuff/Cache-Me-Outside/assets/122505441/1f57aa1b-f36f-4baf-9299-ae5d58175409">
-
-  Profile displays all of the caches the user created
-  
-  <img width="500" alt="image" src="https://github.com/StephenCodesStuff/Cache-Me-Outside/assets/122505441/bc298749-b072-4a94-89f9-eada2d7d8083">
-
-  Delete Cache will delete the user data.
-
-  
   ## License
   ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -95,3 +82,4 @@ Seed Data Generation:
 * [Chat GPT](https://chat.openai.com/)
 
 
+<img src="./public/assets/img/readme-images/588b42550b6692ceddc9871a.png" width="75" height="75" style="float: right">
