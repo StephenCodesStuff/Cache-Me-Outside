@@ -81,9 +81,14 @@ router.get('/cache/:id', async (req, res) => {
 
     const cache = cacheData.get({ plain: true });
 
+    const timesFoundData = await TimesFound.findAndCountAll({
+      where: { cache_id: req.params.id }
+    });
+    const timesFound = timesFoundData.count;
     // res.status(200).json(cache);
     res.render('expanded-cache-details', { 
-      cache, 
+      cache,
+      timesFound, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
