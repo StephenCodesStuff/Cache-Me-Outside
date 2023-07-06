@@ -17,11 +17,6 @@ TimesFound.init(
             primaryKey: true,
             autoIncrement: true
         },
-        //actual number of times found
-        // num_times_found: {
-        //     type: DataTypes.INTEGER,
-        //     defaultValue: 0
-        // },
         finder_id: {
             type: DataTypes.INTEGER,
             references: {

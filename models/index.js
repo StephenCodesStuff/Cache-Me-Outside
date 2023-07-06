@@ -11,7 +11,6 @@ User.hasMany(Caches, {
 //a cache can only belong to one hider (user)
 Caches.belongsTo(User, {
     foreignKey: 'hider_id',
-    // onDelete: 'CASCADE' if cache deleted, delete associated child rows
 });
 
 //1:1 relationship between found caches and caches
@@ -33,6 +32,7 @@ TimesFound.belongsTo(User, {
     foreignKey: 'finder_id'
     });
 
+
 //many found caches : many users
 FoundCaches.belongsToMany(User, {
     through: TimesFound,
@@ -46,11 +46,12 @@ User.belongsToMany(FoundCaches, {
     unique: false
     });
 
+
 //Found caches can be found many times
 FoundCaches.hasMany(TimesFound, {
     foreignKey: 'found_cache_id',
     constraints: false,
-unique: false
+    unique: false
     });
 
 TimesFound.belongsTo(FoundCaches, {
@@ -58,6 +59,7 @@ TimesFound.belongsTo(FoundCaches, {
     unique: false,
     constraints: false
     });
+
 
 //TimesFound can only be associated with one found cache entry
 TimesFound.hasMany(FoundCaches, {
@@ -78,18 +80,5 @@ TimesFound.belongsTo(Caches, {
     foreignKey: 'cache_id'
     });
 
-// //one cache can be found many times (cache:many finders)
-// Caches.hasMany(FoundCaches, {
-//     foreignKey: 'cache_id'
-// });
-// //testing if we can cheese this
-// FoundCaches.belongsTo(User, {
-//     foreignKey: 'finder_id'
-// });
 
-// FoundCaches.belongsTo(Caches, {
-//     foreignKey: 'cache_id'
-// });
-
-// //i fuckiong cheesed it
 module.exports = { User, Caches, FoundCaches, TimesFound };
