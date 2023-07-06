@@ -11,7 +11,7 @@ FoundCaches.init(
             primaryKey: true,
             autoIncrement: true
         },
-        last_time_found_id:{
+        timefound_id:{
             type: DataTypes.INTEGER,
             references: {
                 model: 'timesfound',

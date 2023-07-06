@@ -63,11 +63,11 @@ TimesFound.belongsTo(FoundCaches, {
 
 //TimesFound can only be associated with one found cache entry
 TimesFound.hasMany(FoundCaches, {
-    foreignKey: 'last_time_found_id'
+    foreignKey: 'timefound_id'
     });
 
 FoundCaches.belongsTo(TimesFound, {
-    foreignKey: 'last_time_found_id'
+    foreignKey: 'timefound_id'
     });
 
 

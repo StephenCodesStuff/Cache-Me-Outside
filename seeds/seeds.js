@@ -57,7 +57,7 @@ const seedDatabase = async () => {
                 //assign the cache id to the found cache
                 cache_id: timeFound.cache_id,
                 //assign the timesfound id to the found cache
-                last_time_found_id: timeFound.id
+                timefound_id: timeFound.id
             });
             //push the found cache to the found caches array
             foundCaches.push(foundCache);
@@ -72,7 +72,7 @@ const seedDatabase = async () => {
             //creating fresh entry in found caches table
             const foundCache = await FoundCaches.create({
                 cache_id: timeFound.cache_id,
-                last_time_found_id: timeFound.id
+                timefound_id: timeFound.id
             });
             foundCaches.push(foundCache);
         }
@@ -93,7 +93,7 @@ const seedDatabase = async () => {
     console.log('updated id for found caches', foundCaches);
     //mapping the found caches array to extract data
     const foundCachesSeed = foundCaches.map((foundCache) => foundCache.get({ plain: true }));
-    
+
     console.log(foundCachesSeed, 'u finally did it');
 
     process.exit(0);
