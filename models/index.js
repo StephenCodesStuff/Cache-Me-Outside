@@ -13,7 +13,6 @@ Caches.belongsTo(User, {
     foreignKey: 'hider_id',
 });
 
-
 //Caches can be found many times
 Caches.hasMany(TimesFound, {
     foreignKey: 'cache_id'
@@ -40,21 +39,6 @@ User.hasMany(TimesFound, {
 TimesFound.belongsTo(User, {
     foreignKey: 'finder_id'
 });
-
-
-// //many found caches : many users
-// FoundCaches.belongsToMany(User, {
-//     through: TimesFound,
-//     foreignKey: 'found_cache_id',
-//     unique: false
-//     });
-
-// User.belongsToMany(FoundCaches, {
-//     through: TimesFound,
-//     foreignKey: 'finder_id',
-//     unique: false
-//     });
-
 
 //Found caches can be found many times
 FoundCaches.hasMany(TimesFound, {

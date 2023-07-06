@@ -65,7 +65,7 @@ router.get('/profile', async (req, res) => {
       attributes: { exclude: ['password'] },
       include: [
         {
-        model: TimesFound,
+          model: TimesFound,
           include: {
             model: Caches,
           },
