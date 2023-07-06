@@ -32,7 +32,7 @@ router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Caches }],
+      include: [{ model: Caches }, {model: TimesFound}],
     });
 
     const user = userData.get({ plain: true });
@@ -53,8 +53,7 @@ router.get('/new-cache', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Caches },
-      {model: TimesFound}],
+      include: [{ model: Caches }],
     });
 
     const user = userData.get({ plain: true });
