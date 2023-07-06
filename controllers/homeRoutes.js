@@ -39,7 +39,8 @@ router.get('/profile', withAuth, async (req, res) => {
     console.log(userData)
     
     console.log(userData.caches)
-
+    console.log(userData.timesfound)
+    
     res.render('profile', {
       ...user,
       logged_in: true
