@@ -5,9 +5,9 @@ INSERT INTO timesfound (num_times_found,finder_id,cache_id,found_cache_id,create
 
 
 -- Update rows in table 'TableName'
-UPDATE timesfound
-SET
-    found_cache_id = 1
-    -- add more columns and values here
-WHERE 	/* add search conditions here */
-    id = 1;
+-- UPDATE timesfound
+-- SET
+--     found_cache_id = 1
+--     -- add more columns and values here
+-- WHERE 	/* add search conditions here */
+--     id = 1;

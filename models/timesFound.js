@@ -32,14 +32,6 @@ TimesFound.init(
                 key: 'id'
             },
         },
-        // found_cache_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'foundCaches',
-        //         key: 'id'
-        //     },
-        //     unique: false
-        // },
     },
     {
         sequelize,
