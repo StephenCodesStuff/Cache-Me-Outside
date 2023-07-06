@@ -1,30 +1,38 @@
-  # Cache Me Outside
- 
- ![CacheMeLogo](https://github.com/StephenCodesStuff/Cache-Me-Outside/assets/122505441/c4e5dfff-8022-4b4e-96a8-23208754a7b2)
+<div align='center'>
+
+ # Cache Me Outside
+
+![DreamTeam](https://img.shields.io/badge/dreamteam-generated-blue)
+![javascript](https://img.shields.io/badge/javascript-yellow)
+![CSS](https://img.shields.io/badge/CSS-orange)
+![node.js](https://img.shields.io/badge/node.js-green)
+![express.js](https://img.shields.io/badge/express.js-red)
+![mySQL](https://img.shields.io/badge/mySQL-blue)
+![handlebars](https://img.shields.io/badge/handlebars-orange)
+
+</div>
+
 
   ## Description
+
   
+ Cache Me Outside - the ultimate scavenger hunt app!
+
  Our new geocaching website, "Cache Me Outside" is a digital platform that aims to revolutionize the way people engage with outdoor geocaching hunting activities. By combining the thrill of adventure, problem-solving, and technology, “Cache Me Outside” offers an immersive experience for treasure hunters of all ages and abilities. Users can explore real-world locations and unlock hidden treasures, all while fostering a sense of curiosity and discovery.
   
-  ## Table of Contents 
-  
-  * [Installation](#installation)
-  
-  * [Usage](#usage)
-  
-  * [License](#license)
-  
-  * [Contributing](#contributing)
-  
-  * [Technologies](#technologies)
-  
-  * [Questions](#questions)
-  
   ## Installation
-  Deployment Link
-  https://cache-me-outside-aaacc989ab5f.herokuapp.com/ 
+
+  Cache Me Outside is fully deployed and can be accessed [here.](https://cache-me-outside-aaacc989ab5f.herokuapp.com/)
 
   ## Usage
+
+  The website is accessible to anyone without credentials - however, to access the profile pages and the ability to create new caches, the user must create an account. For testing purposes, the following credentials can be used to access the profile pages:
+
+  ```
+  username: bootcamp@test.com
+  password: bootcamp
+  ```
+
   The homepage opens allowing user to see a brief how to play and an easy to see map of the hidden caches in their area.
   
   <img width="500" alt="image" src="https://github.com/StephenCodesStuff/Cache-Me-Outside/assets/122505441/1809d588-fa5c-4b59-bb69-4ba1f88701e3">
@@ -49,31 +57,41 @@
 
   
   ## License
-  MIT License
+  ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-  
-  
-    
   ## Contributing
-  Stephen Cook
-  
-  Matt Chiaro
-  
-  KT Eddy
 
-  ## Technologies
-  Mapbox GLJS - a mapping API
-  
-  ChatGPT - generates seed data
-  
-  WebGL
-  
-  Bootstrap - Impact Template
-  
-  NPM Packages - bcrypt, sequelize, dotenv, express, handlebars, mysql12
+- [Stephen Cook](github.com/stephencodesstuff)
+- [Matt Chiaro](github.com/mattchiaro)
+- [KT Eddy](github.com/kumhi0)
 
-  
-  ## Questions
-  
-  Email: [Email](mailto:spcook23@gmail.com)
-  github: [Github](https://github.com/stephencodesstuff)
+
+## Technologies Used:
+
+Generating interactive maps with Web GL:  
+  * [Mapbox GL JS](https://www.mapbox.com/mapbox-gljs)
+
+CSS and front-end styling:
+  * [Bootstrap](https://getbootstrap.com/)
+  - [Impact Template](https://bootstrapmade.com/impact-bootstrap-business-website-template/)
+
+Database Management:
+  * [MySQL2](https://www.npmjs.com/package/mysql2)
+  * [Sequelize](https://www.npmjs.com/package/sequelize)
+
+Password Hashing:
+* [bcrypt](https://www.npmjs.com/package/bcrypt)
+
+Hiding sensitive information:
+* [dotenv](https://www.npmjs.com/package/dotenv)
+
+Express JS:
+  * [express](https://www.npmjs.com/package/express)
+  * [express-handlebars](https://www.npmjs.com/package/express-handlebars)
+  * [express-session](https://www.npmjs.com/package/express-session)
+  * [express-flash](https://www.npmjs.com/package/express-flash)
+
+Seed Data Generation: 
+* [Chat GPT](https://chat.openai.com/)
+
+
