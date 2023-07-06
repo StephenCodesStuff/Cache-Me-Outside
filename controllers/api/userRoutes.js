@@ -65,12 +65,12 @@ router.get('/profile', async (req, res) => {
       attributes: { exclude: ['password'] },
       include: [
         {
-        model: Caches,
+        model: TimesFound,
         },
         {
-          model: FoundCaches,
-          through: TimesFound
-        }],
+          model: Caches,
+        },
+        ],
     });
     const user = userData.get({ plain: true });
     res.status(200).json(userData);

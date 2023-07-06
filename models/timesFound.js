@@ -5,6 +5,7 @@
 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const FoundCaches = require('./foundcaches');
 
 class TimesFound extends Model { }
 
@@ -35,7 +36,7 @@ TimesFound.init(
         found_cache_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'foundcaches',
+                model: FoundCaches,
                 key: 'id'
             },
         },
