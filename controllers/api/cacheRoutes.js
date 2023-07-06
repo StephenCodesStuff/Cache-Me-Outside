@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Caches, User, TimesFound } = require('../../models');
+const { Caches, User, TimesFound, FoundCaches } = require('../../models');
 const withAuth = require('../../utils/auth')
 
 //GET all caches for testing purposes
@@ -69,6 +69,52 @@ router.post('/', withAuth, async (req, res) => {
   });
 
 //UPDATE cache
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+      const foundCache = await FoundCaches.findByPk(req.params.id);
+      const cache = await Caches.findByPk(req.params.id);
+      if(foundCache) {
+        const newFind = await TimesFound.create({
+          finder_id: req.session.user_id,
+          cache_id: req.params.id,
+        });
+        const foundCacheData = await FoundCaches.update({
+          last_time_found_id: newFind.id,
+        },
+        {
+          where: {
+            cache_id: req.params.id,
+          },
+        });
+        res.status(200).json(foundCacheData);
+        console.log(newFind, foundCacheData, 'new find for cache #', req.params.id);
+      } else if(!foundCache && cache.isFound === false) {
+        const newFind = await TimesFound.create({
+          finder_id: req.session.user_id,
+          cache_id: req.params.id,
+        });
+        const newFoundCache = await FoundCaches.create({
+          cache_id: req.params.id,
+          last_time_found_id: newFind.id,
+        });
+        const cacheData = await Caches.update({
+          isFound: true,
+        },
+        {
+          where: {
+            id: req.params.id,
+          },
+        });
+        res.status(200).json(newFoundCache);
+        console.log(newFind, newFoundCache, cacheData, 'u genius ur the first to find cache #', req.params.id);
+      } else {
+        res.status(404).json({ message: 'No cache found with this id, u idiot!' });
+      }
+    } catch (err) {
+      res.status(500).json(err);
+      console.log('u broke it u moron', err);
+    }
+  });
 
 //DELETE cache
 router.delete('/:id', withAuth, async (req, res) => {
