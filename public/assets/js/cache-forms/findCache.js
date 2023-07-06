@@ -12,4 +12,4 @@ const updateCache = async (cacheId, cache) => {
     }
 }
 
-document.querySelector('#btn-found').addEventListener('click', updateCache);
+document.querySelector('.found-btn').addEventListener('click', updateCache);

@@ -21,8 +21,9 @@
           <p>
             {{cache.description}}
           </p>
+          <p>____________________</p>
           {{#if loggedIn}}
-          <button type="submit" class="btn btn-primary" id="btn-found">Found it!</button>
+          <a class="found-btn" data-cache-id="{{cache.id}}"><strong>Found!</strong></a>
           {{/if}}
         </div>
       </div>
