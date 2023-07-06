@@ -9,7 +9,7 @@
     <meta content="" name="keywords">
     <!-- Favicons -->
     <link href="/assets/img/map-png.png" rel="icon">
-    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="/assets/img/map-png.png" rel="apple-touch-icon">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,9 +56,7 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/#about">How to Play</a></li>
-                    {{!-- <li><a href="#services">Services</a></li> --}}
                     <li><a href="/#portfolio">Caches</a></li>
-                    {{!-- <li><a href="/new-cache" data-bs-toggle="modal" data-bs-target="#createModal">New Cache</a></li> --}}
                     {{#if logged_in}}
                     <li><a href="/new-cache">New Cache</a></li>
                     <li><a href="/profile">Profile</a></li>
@@ -83,10 +81,10 @@
             <div class="row gy-4 d-flex justify-content-center text-center">
                 <div class="col-lg-4 col-md-12 footer-info d-flex align-items-center justify-content-center">
                     <div class="text-center">
-                    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-                        <span>Cache Me Outside!</span>
-                    </a>
-                    <p>The <i>ultimate</i> scavenger hunt to play with friends. </p>
+                        <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+                            <span>Cache Me Outside!</span>
+                        </a>
+                        <p>The <i>ultimate</i> scavenger hunt to play with friends. </p>
                     </div>
 
                 </div>
@@ -147,7 +145,7 @@
 
     {{#if logged_in}}
     <script src="/assets/js/user-forms/logout.js"></script>
-    
+
     {{else}}
     <script src="/assets/js/user-forms/login.js"></script>
     <script src="/assets/js/user-forms/signup.js"></script>

@@ -1,11 +1,9 @@
 const withAuth = (req, res, next) => {
-    
     if (!req.session.logged_in) {
-      res.redirect('/');
-      alert("Please log in to continue");
+      req.flash('error', 'Please log in to continue');
+      return res.redirect('/');
     } else {
-      next();
+      return next();
     }
   };
-  
   module.exports = withAuth;

@@ -13,20 +13,10 @@ Caches.belongsTo(User, {
     foreignKey: 'hider_id',
 });
 
-//1:1 relationship between found caches and caches
-FoundCaches.belongsTo(Caches, {
-    foreignKey: 'cache_id'
-    });
-
-Caches.hasOne(FoundCaches, {
-    foreignKey: 'cache_id'
-    });
-
-
-//users as finders to timesfound
-User.hasMany(TimesFound, {
+//user can find many caches (Finder:many caches)
+User.hasMany(FoundCaches, {
     foreignKey: 'finder_id'
-    });
+});
 
 TimesFound.belongsTo(User, {
     foreignKey: 'finder_id'
@@ -74,7 +64,7 @@ FoundCaches.belongsTo(TimesFound, {
 //Caches can be found many times
 Caches.hasMany(TimesFound, {
     foreignKey: 'cache_id'
-    });
+});
 
 TimesFound.belongsTo(Caches, {
     foreignKey: 'cache_id'

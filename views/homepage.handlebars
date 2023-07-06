@@ -1,6 +1,8 @@
+    {{#each messages}}
+    <div class="alert alert-danger" role="alert">{{this}}</div>
+    {{/each}}
 {{>about-the-game}}
 <main id="main">
     {{>how-to-play}}
     {{> caches-list}}
 </main>
-
