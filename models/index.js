@@ -14,7 +14,7 @@ Caches.belongsTo(User, {
 });
 
 //user can find many caches (Finder:many caches)
-User.hasMany(FoundCaches, {
+User.hasMany(TimesFound, {
     foreignKey: 'finder_id'
 });
 
@@ -23,18 +23,18 @@ TimesFound.belongsTo(User, {
     });
 
 
-//many found caches : many users
-FoundCaches.belongsToMany(User, {
-    through: TimesFound,
-    foreignKey: 'found_cache_id',
-    unique: false
-    });
+// //many found caches : many users
+// FoundCaches.belongsToMany(User, {
+//     through: TimesFound,
+//     foreignKey: 'found_cache_id',
+//     unique: false
+//     });
 
-User.belongsToMany(FoundCaches, {
-    through: TimesFound,
-    foreignKey: 'finder_id',
-    unique: false
-    });
+// User.belongsToMany(FoundCaches, {
+//     through: TimesFound,
+//     foreignKey: 'finder_id',
+//     unique: false
+//     });
 
 
 //Found caches can be found many times
