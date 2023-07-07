@@ -10,12 +10,10 @@ router.get('/', async (req, res) => {
         model: User,
         attributes: ['id', 'username']
       }
-    }
-    );
+    });
 
     const caches = cacheData.map((caches) =>
-      caches.get({ plain: true })
-    );
+      caches.get({ plain: true }));
     res.status(200).json(caches);
   } catch (err) {
     res.status(500).json(err);
@@ -38,7 +36,6 @@ router.get('/:id', async (req, res) => {
 });
 
 //get all caches by User ID
-
 router.get('/user/id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
@@ -68,7 +65,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-//UPDATE cache
+//UPDATE cache aka "finding" cache (by id)
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const foundCache = await FoundCaches.findByPk(req.params.id);
@@ -90,8 +87,6 @@ router.put('/:id', withAuth, async (req, res) => {
         });
 
       res.status(200).json(newFind);
-      console.log(foundCacheData, 'new find for cache #', req.params.id);
-
     } else if (!foundCache && cache) {
 
       const newFind = await TimesFound.create({
@@ -114,14 +109,12 @@ router.put('/:id', withAuth, async (req, res) => {
         });
 
       res.status(200).json(newFind);
-      console.log(newFind, newFoundCache, cacheData, 'u genius ur the first to find cache #', req.params.id);
 
     } else {
       res.status(404).json({ message: 'No cache found with this id, u idiot!' });
     }
   } catch (err) {
     res.status(500).json(err);
-    console.log('u broke it u moron', err);
   }
 });
 
@@ -143,21 +136,19 @@ router.delete('/:id', withAuth, async (req, res) => {
               hider_id: req.session.user_id,
             },
           });
-          console.log(`u deleted cache ${req.params.id} doofus`);
           res.status(200).json({ message: `u deleted cache ${req.params.id} doofus` });
 
         } else {
           const cache = Caches.findByPk(req.params.id);
 
           if(cache){ 
-            res.status(404).json({ message: 'You can only delete your own caches, u dummy!' });
+            res.status(404).json({ message: 'You can only delete your own caches, dingus!' });
           } else {
-            res.status(404).json({ message: 'No cache found with this id, u idiot!' });
+            res.status(404).json({ message: 'No cache found with this id!' });
           }
         }
   } catch (err) {
     res.status(500).json(err);
-    console.log('u broke it u moron', err);
   }
 });
 
@@ -170,7 +161,6 @@ router.get('/:id/timesfound', async (req, res) => {
     const timesFound = timesFoundData.count;
     res.status(200).json(timesFound);
   } catch (err) {
-    console.log("u broke it u moron", err);
     res.status(500).json(err);
   }
 });
@@ -188,10 +178,8 @@ router.get('/:id/finders', async (req, res) => {
     const finders = findersData.map((finder) =>
       finder.get({ plain: true })
     );
-    console.log(finders, "finders for cache #", req.params.id);
     res.status(200).json(finders);
   } catch (err) {
-    console.log("u broke it u moron", err);
     res.status(500).json(err);
   }
 });
