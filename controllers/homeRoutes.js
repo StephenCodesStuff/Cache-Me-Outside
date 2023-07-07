@@ -3,7 +3,6 @@ const { User, Caches, TimesFound } = require('../models');
 const withAuth = require('../utils/auth');
 
 //GET all caches
-
 router.get('/', async (req, res) => {
   try {
     const messages = req.flash('error');
@@ -15,7 +14,6 @@ router.get('/', async (req, res) => {
     const caches = cacheData.map((caches) =>
       caches.get({ plain: true })
 );
-    // res.status(200).json(caches);
     res.render('homepage', { 
       caches, 
       logged_in: req.session.logged_in,
@@ -36,11 +34,6 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log(userData)
-    
-    console.log(userData.caches)
-    console.log(userData.timesfound)
-    
     res.render('profile', {
       ...user,
       logged_in: true
@@ -58,10 +51,6 @@ router.get('/new-cache', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log(userData)
-    
-    console.log(userData.caches)
-
     res.render('new-cache', {
       ...user,
       logged_in: true
@@ -97,7 +86,6 @@ router.get('/cache/:id', async (req, res) => {
       finder.get({ plain: true })
     );
 
-    // res.status(200).json(cache);
     res.render('expanded-cache-details', { 
       cache,
       timesFound,
