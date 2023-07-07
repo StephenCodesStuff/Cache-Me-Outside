@@ -14,14 +14,15 @@ const seedDatabase = async () => {
     });
 
     const caches = await Caches.bulkCreate(cacheData);
-
     //in order to have caches stored inside the found caches table, they must be found in (and the instance of "finding" recorded inside) the timesfound table
 
     //declaring empty array for the all timesfound instance objects to be stored, essentially the .json file but dynamically created
     const timesFound = [];
-    //creating a random number of timesfound instances
+
+    //creating a random number of timesfound instances; for FUN!!
+    //also means seed data will be different everytime db is seeded, makes it more interesting to test/check routes
     timesFound.length = Math.floor(Math.random() * 30 + 1);
-    console.log(timesFound.length);
+
     //for loop within that array length to create seed data
     for (let i = 0; i < timesFound.length; i++) {
         timesFound[i] = await TimesFound.create({
@@ -31,11 +32,10 @@ const seedDatabase = async () => {
             //randomly assigning a cache id to each instance
             cache_id: caches[Math.floor(Math.random() * caches.length)].id
         });
-        console.log(timesFound[i], 'it worked idiot');
     }
     //mapping the timesfound array to extract data
     const timesFoundSeed = timesFound.map((timefind) => timefind.get({ plain: true }));
-    console.log(timesFoundSeed, 'u finally did it');
+    console.log(timesFoundSeed, 'u finally done it')
 
     //now that we have all 'logged' instances of caches being found, we can create the found caches table
     //declaring empty array for foundcaches to store all caches that have been found
@@ -76,8 +76,6 @@ const seedDatabase = async () => {
             });
             foundCaches.push(foundCache);
         }
-    
-    console.log('found caches stored, u done did it dummy');
     }
     //updating the ids of found caches to increment properly (since they are primary keys)
     for (let i = 0; i < foundCaches.length; i++) {
