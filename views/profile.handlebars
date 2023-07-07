@@ -31,26 +31,27 @@
         </div>
       </div>
     </div>
-
+    {{#if timesfounds}}
     <div class="section-header">
       <p>Your found caches:</p>
     </div>
-  <div class="row gy-4 portfolio-container" id="cache-list">
+    <div class="row gy-4 portfolio-container" id="cache-list">
 
-          {{#each timesfounds}}
+      {{#each timesfounds}}
 
-          <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <div class="portfolio-info">
-                <h4><a href="/cache/{{cache_id}}" title="More Details">{{cach.name}}</a></h4>
-                <p><a>Location: {{cach.lat}}, {{cach.lon}}</a></p>
-                <p>Difficulty: {{cach.difficulty}}</p>
-                <a href="/cache/{{cache_id}}">More Details</a>
-              </div>
-            </div>
+      <div class="col-xl-4 col-md-6 portfolio-item filter-app">
+        <div class="portfolio-wrap">
+          <div class="portfolio-info">
+            <h4><a href="/cache/{{cache_id}}" title="More Details">{{cach.name}}</a></h4>
+            <p><a>Location: {{cach.lat}}, {{cach.lon}}</a></p>
+            <p>Difficulty: {{cach.difficulty}}</p>
+            <a href="/cache/{{cache_id}}">More Details</a>
           </div>
-          {{/each}}
         </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
   </div>
 
   </div>
