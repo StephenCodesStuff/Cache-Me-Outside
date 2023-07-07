@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, FoundCaches, Caches, TimesFound } = require('../../models');
+const { User, Caches, TimesFound } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
@@ -70,9 +70,7 @@ router.get('/profile', async (req, res) => {
             model: Caches,
           },
         },
-        {
-          model: Caches,
-        },
+        { model: Caches },
         ],
     });
     const user = userData.get({ plain: true });
