@@ -21,7 +21,12 @@
           <p>
             {{cache.description}}
           </p>
+          <p><strong>Hints: </strong>{{cache.hints}}</p>
 
+          <p>____________________</p>
+          {{#if logged_in}}
+          <a class="found-btn" id="found-btn" data-cache-id="{{cache.id}}">Found!</a>
+          {{/if}}
         </div>
       </div>
 
@@ -35,6 +40,12 @@
             <li><strong>Hidden Since:</strong> <span>{{format_date cache.createdAt}}</span></li>
             <li><strong>Difficulty: </strong>{{cache.difficulty}}</li>
             <li><strong>Hidden By: </strong>{{cache.user.username}}</li>
+            {{#if timesFound}}
+            <li><strong>Times Found: </strong>{{timesFound}}</li>
+            <li><strong>Found By: </strong></li>
+            {{#each finders}}
+            <li> {{user.username}} </li>{{/each}}
+            {{/if}}
           </ul>
         </div>
       </div>
@@ -45,3 +56,4 @@
 </section>
 
 <script src="/assets/js/maps/expandedDetailsMap.js"></script>
+<script src="/assets/js/cache-forms/findCache.js"></script>

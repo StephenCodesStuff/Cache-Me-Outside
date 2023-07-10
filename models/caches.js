@@ -40,6 +40,11 @@ Caches.init(
                 key: 'id'
             },
         },
+        isFound: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+        },
     },
     {
         sequelize,

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Caches, TimesFound } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
@@ -57,5 +57,33 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+//get user profile test
+router.get('/profile', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [
+        {
+          model: TimesFound,
+          include: {
+            model: Caches,
+          },
+        },
+        { model: Caches },
+        ],
+    });
+    const user = userData.get({ plain: true });
+    res.status(200).json(userData);
+    res.render('profile', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 module.exports = router;

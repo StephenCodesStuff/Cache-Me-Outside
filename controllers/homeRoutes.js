@@ -1,9 +1,8 @@
 const router = require('express').Router();
-const { User, Caches } = require('../models');
+const { User, Caches, TimesFound } = require('../models');
 const withAuth = require('../utils/auth');
 
 //GET all caches
-
 router.get('/', async (req, res) => {
   try {
     const messages = req.flash('error');
@@ -15,7 +14,6 @@ router.get('/', async (req, res) => {
     const caches = cacheData.map((caches) =>
       caches.get({ plain: true })
 );
-    // res.status(200).json(caches);
     res.render('homepage', { 
       caches, 
       logged_in: req.session.logged_in,
@@ -32,14 +30,10 @@ router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Caches }],
+      include: [{ model: Caches }, {model: TimesFound, include: {model: Caches}}],
     });
 
     const user = userData.get({ plain: true });
-    console.log(userData)
-    
-    console.log(userData.caches)
-
     res.render('profile', {
       ...user,
       logged_in: true
@@ -57,10 +51,6 @@ router.get('/new-cache', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log(userData)
-    
-    console.log(userData.caches)
-
     res.render('new-cache', {
       ...user,
       logged_in: true
@@ -79,16 +69,34 @@ router.get('/cache/:id', async (req, res) => {
     });
 
     const cache = cacheData.get({ plain: true });
+//times found data for specific cache
+    const timesFoundData = await TimesFound.findAndCountAll({
+      where: { cache_id: req.params.id }
+    });
+    const timesFound = timesFoundData.count;
+    //finders
+    const findersData = await TimesFound.findAll({
+      where: { cache_id: req.params.id },
+      include: {
+        model: User,
+        attributes: ['id', 'username']
+      }
+    });
+    const finders = findersData.map((finder) =>
+      finder.get({ plain: true })
+    );
 
-    // res.status(200).json(cache);
     res.render('expanded-cache-details', { 
-      cache, 
+      cache,
+      timesFound,
+      finders, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 
 module.exports = router;
